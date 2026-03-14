@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Jett Dobson</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f7f9fc;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1f4e79;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .hero {
+      background-color: #dce8f5;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      color: #1f2d3d;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero p {
+      max-width: 850px;
+      margin: 0 auto;
+      font-size: 1.08rem;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .section {
+      background: white;
+      padding: 2rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      margin-bottom: 2rem;
+    }
+
+    .section h2 {
+      color: #1f4e79;
+      margin-bottom: 0.9rem;
+      font-size: 1.7rem;
+    }
+
+    .section-intro {
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .contact-card,
+    .form-card,
+    .note-box {
+      background-color: #f8fbfe;
+      border: 1px solid #d9e4ef;
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .contact-card h3,
+    .form-card h3,
+    .note-box h3 {
+      color: #1f4e79;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-methods {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      background-color: #eef5fc;
+      border-left: 5px solid #1f4e79;
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    .icon-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: #1f4e79;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-method a {
+      color: #1f4e79;
+      text-decoration: none;
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .contact-method a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-label {
+      font-size: 0.92rem;
+      color: #44596d;
+      margin-bottom: 0.15rem;
+    }
+
+    form {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .form-row {
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    label {
+      font-weight: 600;
+      color: #1f4e79;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.85rem 0.9rem;
+      border: 1px solid #c7d6e6;
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: white;
+      color: #222;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: #1f4e79;
+      box-shadow: 0 0 0 3px rgba(31, 78, 121, 0.12);
+    }
+
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .submit-button {
+      display: inline-block;
+      border: none;
+      background-color: #1f4e79;
+      color: white;
+      padding: 0.85rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+      width: fit-content;
+    }
+
+    .submit-button:hover {
+      opacity: 0.92;
+    }
+
+    .small-note {
+      font-size: 0.94rem;
+      color: #44596d;
+      margin-top: 0.85rem;
+    }
+
+    .privacy-list {
+      margin-left: 1.2rem;
+      margin-top: 0.75rem;
+    }
+
+    .privacy-list li {
+      margin-bottom: 0.45rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #1f4e79;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .section {
+        padding: 1.25rem;
+      }
+
+      .hero {
+        padding: 2rem 1rem;
+      }
+
+      .school-head {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="site-title">Jett Dobson | Teaching Portfolio</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">About Me</a></li>
+          <li><a href="teaching-philosophy.html">Teaching Philosophy</a></li>
+          <li><a href="lesson-plans.html">Evidence of Practice</a></li>
+          <li><a href="practicum.html">Practicum</a></li>
+          <li><a href="resume.html">Educational CV</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Contact</h1>
+    <p>
+      Thank you for visiting my teaching portfolio. For professional inquiries related to teaching, education, collaboration,
+      or employment opportunities, please use the contact form below or connect with me through LinkedIn.
+    </p>
+  </section>
+
+  <main class="container">
+    <section class="section">
+      <h2>Get in Touch</h2>
+      <p class="section-intro">
+        I welcome professional inquiries and opportunities to connect. You can use the form below to send a message
+        or visit my LinkedIn profile.
+      </p>
+
+      <div class="contact-grid">
+        <div class="form-card">
+          <h3>Contact Form</h3>
+          <p>
+            Use the form below to send a professional inquiry. You can ask about teaching opportunities, collaboration,
+            portfolio materials, or general education-related contact.
+          </p>
+
+          <form action="https://formspree.io/f/mdaweqzk" method="POST">
+            <div class="form-row">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-row">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-row">
+              <label for="inquiry-type">Reason for Contact</label>
+              <select id="inquiry-type" name="inquiry_type" required>
+                <option value="">Select an option</option>
+                <option value="professional-inquiry">Professional Inquiry</option>
+                <option value="teaching-opportunity">Teaching Opportunity</option>
+                <option value="collaboration">Collaboration</option>
+                <option value="portfolio-question">Portfolio Question</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+            </div>
+
+            <input type="hidden" name="_subject" value="New message from teaching portfolio">
+            <input type="text" name="_gotcha" style="display:none">
+
+            <button class="submit-button" type="submit">Send Message</button>
+          </form>
+
+          <p class="small-note">
+            This contact form is connected through a secure form service and will send professional inquiries directly to my email.
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Professional Profile</h3>
+          <p>
+            You can also connect with me through LinkedIn for professional networking and education-related contact.
+          </p>
+
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="icon-circle" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.94 8.5C7.76843 8.5 8.44 7.82843 8.44 7C8.44 6.17157 7.76843 5.5 6.94 5.5C6.11157 5.5 5.44 6.17157 5.44 7C5.44 7.82843 6.11157 8.5 6.94 8.5Z" fill="white"/>
+                  <path d="M5.75 10.25H8.13V18.5H5.75V10.25Z" fill="white"/>
+                  <path d="M10.1 10.25H12.38V11.38H12.41C12.73 10.78 13.5 10.14 14.65 10.14C17.03 10.14 17.47 11.71 17.47 13.75V18.5H15.09V14.29C15.09 13.29 15.07 12.01 13.71 12.01C12.33 12.01 12.12 13.09 12.12 14.22V18.5H10.1V10.25Z" fill="white"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-label">LinkedIn</div>
+                <a href="https://www.linkedin.com/in/jett-dobson-513070201?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BlF2Cs%2FdOQxCqVdjyuZv8VA%3D%3D" target="_blank" rel="noopener noreferrer">Visit my LinkedIn profile</a>
+              </div>
+            </div>
+          </div>
+
+          <p class="small-note">
+            For privacy and safety, I keep this page limited to professional contact information only.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Privacy and Professional Use</h2>
+      <div class="note-box">
+        <h3>Important Note</h3>
+        <p>
+          To maintain clear professional boundaries and uphold student privacy, I keep this page limited to professional contact information only.
+          I use the contact form and LinkedIn so that communication remains appropriate for an educational context.
+        </p>
+        <ul class="privacy-list">
+          <li>Please do not share sensitive personal details in messages.</li>
+          <li>I do not post personal phone numbers or home addresses on this site.</li>
+          <li>Contact through this portfolio is intended for teaching, learning, and professional collaboration.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Jett Dobson | Teaching Portfolio</p>
+  </footer>
+</body>
+</html>

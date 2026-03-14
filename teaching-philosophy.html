@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teaching Philosophy | Jett Dobson</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f7f9fc;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1f4e79;
+      color: white;
+      padding: 1rem 2rem;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .hero {
+      background-color: #dce8f5;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      color: #1f2d3d;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero p {
+      max-width: 850px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .section {
+      background: white;
+      padding: 2rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      margin-bottom: 2rem;
+    }
+
+    .section h2 {
+      color: #1f4e79;
+      margin-bottom: 1rem;
+    }
+
+    .section-intro {
+      margin-bottom: 2rem;
+    }
+
+    .atom-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 0 1rem 0;
+      overflow-x: auto;
+    }
+
+    .atom {
+      position: relative;
+      width: 700px;
+      height: 700px;
+      min-width: 700px;
+    }
+
+    .nucleus {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 230px;
+      height: 230px;
+      transform: translate(-50%, -50%);
+      background-color: #1f4e79;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.2rem;
+      font-weight: bold;
+      line-height: 1.35;
+      box-shadow: 0 6px 18px rgba(31, 78, 121, 0.25);
+      z-index: 3;
+    }
+
+    .orbit {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border: 2px solid #c7d6e6;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .orbit.one {
+      width: 500px;
+      height: 500px;
+    }
+
+    .orbit.two {
+      width: 620px;
+      height: 380px;
+      transform: translate(-50%, -50%) rotate(25deg);
+    }
+
+    .orbit.three {
+      width: 620px;
+      height: 380px;
+      transform: translate(-50%, -50%) rotate(-25deg);
+    }
+
+    .electron {
+      position: absolute;
+      width: 165px;
+      min-height: 60px;
+      background-color: #f3f7fb;
+      border-left: 5px solid #1f4e79;
+      border-radius: 10px;
+      padding: 0.8rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      z-index: 4;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .electron:hover,
+    .electron:focus-within {
+      transform: scale(1.04);
+    }
+
+    .electron h3 {
+      font-size: 0.95rem;
+      color: #1f4e79;
+      margin-bottom: 0;
+      line-height: 1.3;
+    }
+
+    .tooltip {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      width: 230px;
+      background-color: #1f4e79;
+      color: white;
+      padding: 0.85rem 0.95rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+      z-index: 10;
+    }
+
+    .tooltip::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 8px solid #1f4e79;
+    }
+
+    .electron:hover .tooltip,
+    .electron:focus-within .tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .e1 { top: 8%; left: 39%; }
+    .e2 { top: 24%; right: 4%; }
+    .e3 { bottom: 24%; right: 4%; }
+    .e4 { bottom: 8%; left: 39%; }
+    .e5 { bottom: 24%; left: 4%; }
+    .e6 { top: 24%; left: 4%; }
+
+    .e2 .tooltip,
+    .e3 .tooltip {
+      left: auto;
+      right: 0;
+      transform: none;
+    }
+
+    .e2 .tooltip::before,
+    .e3 .tooltip::before {
+      left: auto;
+      right: 24px;
+      transform: none;
+    }
+
+    .e5 .tooltip,
+    .e6 .tooltip {
+      left: 0;
+      transform: none;
+    }
+
+    .e5 .tooltip::before,
+    .e6 .tooltip::before {
+      left: 24px;
+      transform: none;
+    }
+
+    .e4 .tooltip {
+      top: auto;
+      bottom: calc(100% + 10px);
+    }
+
+    .e4 .tooltip::before {
+      top: auto;
+      bottom: -8px;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid #1f4e79;
+      border-bottom: none;
+    }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .philosophy-card {
+      background-color: #f3f7fb;
+      padding: 1.2rem;
+      border-radius: 12px;
+      border-left: 5px solid #1f4e79;
+    }
+
+    .philosophy-card h3 {
+      color: #1f4e79;
+      margin-bottom: 0.6rem;
+    }
+
+    .philosophy-writing p {
+      margin-bottom: 1.2rem;
+    }
+
+    .philosophy-subheading {
+      color: #1f4e79;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #1f4e79;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .atom {
+        width: 650px;
+        height: 650px;
+        min-width: 650px;
+      }
+
+      .nucleus {
+        width: 210px;
+        height: 210px;
+        font-size: 0.95rem;
+      }
+
+      .electron {
+        width: 145px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .section {
+        padding: 1.25rem;
+      }
+
+      .hero {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="site-title">Jett Dobson | Teaching Portfolio</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">About Me</a></li>
+          <li><a href="teaching-philosophy.html">Teaching Philosophy</a></li>
+          <li><a href="lesson-plans.html">Evidence of Practice</a></li>
+          <li><a href="practicum.html">Practicum</a></li>
+          <li><a href="resume.html">Educational CV</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Teaching Philosophy</h1>
+    <p>
+      As a future physics and mathematics educator, my teaching philosophy is shaped by my experiences as a student, researcher, athlete, and mentor. I believe strong classrooms are built on relationships, inquiry, accountability, and role modelling. I want students to feel known and supported while also being challenged to think deeply, take responsibility for their learning, and grow in confidence.
+    </p>
+  </section>
+
+  <main class="container">
+    <section class="section">
+      <h2>My Philosophy as an Atom Model</h2>
+      <p class="section-intro">
+        I chose an atom model because it reflects both my academic background and the way I think about teaching. In physics, an atom depends on the relationship between a strong centre and the surrounding parts that shape its stability and behaviour. I see my teaching in a similar way. At the centre are the beliefs that ground my classroom, while the surrounding elements represent the values and actions that bring those beliefs to life each day. For me, effective teaching depends on the balance of belonging, inquiry, inclusion, accountability, role modelling, and reflection.
+      </p>
+
+      <div class="atom-wrapper">
+        <div class="atom">
+          <div class="orbit one"></div>
+          <div class="orbit two"></div>
+          <div class="orbit three"></div>
+
+          <div class="nucleus">
+            Known, Challenged, and Growth
+          </div>
+
+          <div class="electron e1" tabindex="0">
+            <h3>Belonging</h3>
+            <div class="tooltip">
+              Students learn best when they feel respected, known, and safe enough to participate and take risks.
+            </div>
+          </div>
+
+          <div class="electron e2" tabindex="0">
+            <h3>Inquiry</h3>
+            <div class="tooltip">
+              Deep understanding grows when students question, investigate, test ideas, and make sense of what they are learning.
+            </div>
+          </div>
+
+          <div class="electron e3" tabindex="0">
+            <h3>Inclusion</h3>
+            <div class="tooltip">
+              Every student deserves meaningful access to learning, appropriate support, and a genuine sense of belonging.
+            </div>
+          </div>
+
+          <div class="electron e4" tabindex="0">
+            <h3>Accountability</h3>
+            <div class="tooltip">
+              Growth requires effort, preparation, follow-through, and clear expectations that help students take responsibility for learning.
+            </div>
+          </div>
+
+          <div class="electron e5" tabindex="0">
+            <h3>Reflection</h3>
+            <div class="tooltip">
+              Students and teachers improve when they reflect honestly, learn from feedback, and make purposeful adjustments.
+            </div>
+          </div>
+
+          <div class="electron e6" tabindex="0">
+            <h3>Role Modelling</h3>
+            <div class="tooltip">
+              I must model the curiosity, respect, integrity, and consistency that I hope to see in students.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Written Teaching Philosophy</h2>
+      <p class="section-intro">
+        The atom model above presents the core ideas that shape my philosophy. At the centre is my belief that students should feel known, challenged, and capable of growth. The written philosophy below explains how my background and experiences have shaped the kind of classroom I hope to build and the kind of teacher I want to become.
+      </p>
+
+      <div class="philosophy-writing">
+        <h3 class="philosophy-subheading">Personal Foundation</h3>
+        <p>
+          My philosophy of teaching is grounded in the belief that education should help students grow both as learners and as people. The purpose of education is not only to help students acquire knowledge and meet curriculum expectations, but also to help them develop confidence, responsibility, curiosity, critical thinking, and the ability to contribute positively to the world around them. I believe education should prepare students to think independently, work through challenge, communicate clearly, and continue learning beyond the classroom. A meaningful education gives students both the academic tools and the personal habits they need to grow.
+        
+          I want to teach physics and mathematics because these subjects are powerful ways of making sense of the world. They help students notice patterns, ask questions, solve problems, and understand how ideas connect. My own educational background in physics, mathematics, and research has shown me that real understanding does not come from memorizing isolated facts or simply being told the answer. It comes from asking questions, testing ideas, making mistakes, reflecting, and gradually building understanding over time. That process is one of the things I value most about these subjects, and it is one of the main reasons I want to teach them. I want students to experience physics and mathematics as meaningful, challenging, and rewarding, rather than as subjects that are only about procedures or right answers.
+        </p>
+
+        <h3 class="philosophy-subheading">How Students Learn Best</h3>
+        <p>
+          I believe students learn best when they feel respected, included, and supported, while also being challenged to grow. Students need to feel safe enough to ask questions, participate, and make mistakes without fear of embarrassment. At the same time, they also need clear expectations, structure, and accountability. In my view, strong learning happens when students understand what they are learning, why it matters, and what is expected of them, and when they are given opportunities to actively build understanding rather than only receive information passively. Students learn best in classrooms where there is both support and responsibility, and where effort, reflection, and growth are valued.
+        </p>
+
+        <h3 class="philosophy-subheading">Methods of Teaching</h3>
+        <p>
+          The most effective methods of teaching are those that balance clarity, modelling, inquiry, guided practice, application, and reflection. I believe explicit instruction is important, especially when introducing new or complex concepts, because students need clear explanations, examples, and teacher guidance. At the same time, I also believe students need opportunities to think, investigate, discuss, question, and make sense of ideas for themselves. Because of that, I value teaching approaches that include modelling, scaffolded instruction, inquiry-based learning, problem-based learning, low floor and high ceiling tasks, collaborative learning, formative assessment, and reflection. I do not believe good teaching comes from relying on one method all the time. I believe effective teaching comes from choosing methods intentionally based on the learners, the content, and the learning goals.
+        </p>
+
+        <h3 class="philosophy-subheading">What Matters Most in My Teaching</h3>
+        <p>
+          The most important aspects of my teaching are relationships, inquiry, inclusion, accountability, and role modelling. I believe relationships matter because students are more likely to engage in learning when they feel known, respected, and supported by their teacher. I believe inquiry matters because students should be encouraged to think deeply, question ideas, and build understanding through reasoning and investigation. I believe inclusion matters because all students deserve meaningful access to learning and a genuine sense of belonging in the classroom. I believe accountability matters because growth requires effort, preparation, persistence, and follow-through. I also believe role modelling matters because students learn from what teachers consistently demonstrate through their actions, attitudes, and expectations.
+        </p>
+
+        <h3 class="philosophy-subheading">Role Modelling, Accountability, and Athletics</h3>
+        <p>
+          My background as an athlete has had a strong influence on my philosophy of teaching. Athletics taught me that growth depends on consistency, discipline, preparation, resilience, and accountability. You do not improve simply by wanting to improve. You improve through effort, reflection, coachability, and a willingness to keep showing up and working, even when progress is gradual or difficult. That mindset shapes how I think about students and learning. I want students to understand that learning is a process, that struggle can be part of growth, and that effort matters.
+        
+          I also want to model the same habits I hope to develop in students. If I expect responsibility, respect, perseverance, and integrity from students, then I need to demonstrate those qualities myself. For that reason, I see teaching as a form of role modelling as much as instruction. Students notice how teachers respond to difficulty, how they treat others, how they handle mistakes, and how seriously they take their responsibilities. I want to model fairness, preparation, calmness, humility, and care.
+        </p>
+
+        <h3 class="philosophy-subheading">Learning Environment and Classroom Practice</h3>
+        <p>
+          The type of learning environment I want to create is one that is structured, respectful, inclusive, and purposeful. I want my classroom to be a place where students understand routines, know what is expected of them, and feel that their effort and participation matter. I also want it to be a place where students feel comfortable asking questions, working with others, taking intellectual risks, and learning from mistakes. To create this environment, I would use strategies such as clear routines, visible agendas, consistent expectations, strong modelling, success criteria, formative check-ins, reflective opportunities, multiple representations, scaffolded instruction, low floor and high ceiling tasks, and opportunities for both collaboration and independent thinking. I would also prioritize getting to know students as individuals so that I can better understand their strengths, needs, interests, and the supports that help them learn most effectively.
+        </p>
+
+        <h3 class="philosophy-subheading">Inquiry and Building Understanding</h3>
+        <p>
+          I believe inquiry is especially important in my teaching because it encourages students to build understanding rather than only receive it. My own experiences in research and higher education showed me that deep learning often comes from uncertainty, exploration, and refinement of ideas. In science and mathematics, I want students to understand that learning is not just about arriving quickly at the right answer. It is also about reasoning, questioning, testing, explaining, and making connections. I want students to see that strong understanding takes time and that their thinking has value. Inquiry matters to me because it helps students become more active, thoughtful, and confident learners.
+        </p>
+
+        <h3 class="philosophy-subheading">Overall Goals as a Teacher</h3>
+        <p>
+          My overall goals as a teacher are to help students build understanding, develop confidence, become more independent learners, and leave the classroom with stronger habits of thought and responsibility. I want students to grow academically, but I also want them to grow in resilience, self-awareness, communication, and their willingness to engage with challenge. I want them to leave my classroom believing that they are capable of learning, improving, and contributing. I also want to help students see physics and mathematics as subjects they can meaningfully engage with, rather than subjects that are only for a small group of people who already feel naturally successful in them.
+        </p>
+
+        <h3 class="philosophy-subheading">Qualities I Bring to Teaching</h3>
+        <p>
+          The qualities I believe I possess that will help me reach these goals include strong content knowledge, curiosity, discipline, empathy, reflectiveness, and a willingness to continue learning. My background in physics has strengthened my problem-solving skills and my ability to think carefully about how ideas connect. My background in athletics has shaped my understanding of effort, accountability, and perseverance. My educational experiences have reinforced the importance of patience, communication, and helping others build confidence. I am also reflective and open to feedback, which I believe is essential in teaching. Good teachers do not stop learning. They continue adjusting, refining, and growing in response to their students and experiences.
+        </p>
+
+        
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Closing Statement</h2>
+      <p>
+        Ultimately, I want my classroom to be a place where students feel respected enough to participate, supported enough to persevere, and challenged enough to grow. I want them to leave with stronger understanding, stronger confidence, and a stronger sense of responsibility for their own learning. My goal is to build a classroom grounded in belonging, inquiry, inclusion, accountability, and role modelling, where students are encouraged not only to succeed academically, but also to grow into thoughtful, resilient, and responsible people.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Jett Dobson | Teaching Portfolio</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Practicum Experience | Jett Dobson</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f7f9fc;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1f4e79;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .hero {
+      background-color: #dce8f5;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      color: #1f2d3d;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero p {
+      max-width: 850px;
+      margin: 0 auto;
+      font-size: 1.08rem;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .section {
+      background: white;
+      padding: 2rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      margin-bottom: 2rem;
+    }
+
+    .section h2 {
+      color: #1f4e79;
+      margin-bottom: 1rem;
+      font-size: 1.7rem;
+    }
+
+    .section h3 {
+      color: #1f4e79;
+      margin-bottom: 0.7rem;
+      font-size: 1.15rem;
+    }
+
+    .section-intro {
+      margin-bottom: 1rem;
+    }
+
+    .placement-grid,
+    .overview-grid,
+    .growth-grid,
+    .artifact-grid,
+    .goal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .placement-card,
+    .info-card,
+    .growth-card,
+    .artifact-card,
+    .goal-card {
+      background-color: #f3f7fb;
+      padding: 1.2rem;
+      border-radius: 12px;
+      border-left: 5px solid #1f4e79;
+    }
+
+    .placement-card a {
+      display: inline-block;
+      margin-top: 0.75rem;
+      color: #1f4e79;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .placement-card a:hover {
+      text-decoration: underline;
+    }
+
+    .status-tag {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      background-color: #dce8f5;
+      color: #1f4e79;
+    }
+
+    .reflection-block {
+      margin-top: 1rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .reflection-entry {
+      background-color: #f8fbfe;
+      border: 1px solid #d9e4ef;
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .highlight-box {
+      background-color: #eef5fc;
+      border-left: 5px solid #1f4e79;
+      border-radius: 10px;
+      padding: 1.2rem;
+    }
+
+    .placement-heading {
+      margin-top: 0.5rem;
+      margin-bottom: 0.25rem;
+      color: #1f4e79;
+      font-size: 1.9rem;
+    }
+
+    .placement-subtext {
+      color: #44596d;
+      margin-bottom: 1rem;
+    }
+
+    .school-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .school-logo {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      background: white;
+      border-radius: 10px;
+      padding: 0.35rem;
+      border: 1px solid #d9e4ef;
+    }
+
+    .logo-note {
+      font-size: 0.95rem;
+      color: #44596d;
+      margin-top: 0.35rem;
+    }
+
+    ul {
+      margin-left: 1.2rem;
+      margin-top: 0.6rem;
+    }
+
+    li {
+      margin-bottom: 0.45rem;
+    }
+
+    .closing {
+      font-size: 1.05rem;
+    }
+
+    .show-more-button {
+      display: inline-block;
+      margin-top: 0.2rem;
+      padding: 0.65rem 1rem;
+      background-color: #1f4e79;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .show-more-button:hover {
+      opacity: 0.92;
+    }
+
+    .collapsible-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.45s ease, opacity 0.3s ease, margin-top 0.3s ease;
+      margin-top: 0;
+    }
+
+    .collapsible-content.open {
+      opacity: 1;
+      margin-top: 1rem;
+    }
+
+    .lesson-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .lesson-showcase-card {
+      background-color: #f8fbfe;
+      border: 1px solid #d9e4ef;
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .lesson-showcase-card h3 {
+      color: #1f4e79;
+      margin-bottom: 0.5rem;
+    }
+
+    .lesson-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .lesson-tag {
+      background-color: #e4eef8;
+      color: #1f4e79;
+      border-radius: 999px;
+      padding: 0.25rem 0.7rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .lesson-reflection-note {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #d9e4ef;
+    }
+
+    .artifact-placeholder {
+      margin-top: 1rem;
+      min-height: 180px;
+      border: 2px dashed #8ea9c5;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      color: #4c6782;
+      background-color: #eef5fc;
+    }
+
+    .practicum2-goals {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .practicum2-goal-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 1rem;
+      align-items: start;
+      background-color: #f8fbfe;
+      border: 1px solid #d9e4ef;
+      border-radius: 12px;
+      padding: 1rem 1.15rem;
+    }
+
+    .practicum2-goal-check {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: #eef5fc;
+      border: 1px solid #cbd8e6;
+      color: #1f4e79;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .practicum2-goal-content h3 {
+      color: #1f4e79;
+      margin-bottom: 0.35rem;
+      font-size: 1.1rem;
+    }
+
+    .practicum2-goal-content p {
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #1f4e79;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 850px) {
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .section {
+        padding: 1.25rem;
+      }
+
+      .hero {
+        padding: 2rem 1rem;
+      }
+
+      .practicum2-goal-item {
+        grid-template-columns: 40px 1fr;
+        gap: 0.85rem;
+      }
+
+      .practicum2-goal-check {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="site-title">Jett Dobson | Teaching Portfolio</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">About Me</a></li>
+          <li><a href="teaching-philosophy.html">Teaching Philosophy</a></li>
+          <li><a href="lesson-plans.html">Evidence of Practice</a></li>
+          <li><a href="practicum.html">Practicum</a></li>
+          <li><a href="resume.html">Educational CV</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Practicum Experience and Reflection</h1>
+    <p>
+      My practicum experiences have played an important role in shaping my development as an educator. Through planning,
+      instruction, assessment, observation, and reflection, I have developed a stronger understanding of responsive
+      teaching, inclusive classroom practice, and the professional responsibilities involved in supporting student learning.
+    </p>
+  </section>
+
+  <main class="container">
+    <section class="section">
+      <h2>Placement Overview</h2>
+      <p class="section-intro">
+        This page documents my practicum journey across multiple placements. It includes reflection on completed
+        experiences as well as space to document future growth, responsibilities, and professional learning in
+        upcoming placements.
+      </p>
+
+      <div class="placement-grid">
+        <div class="placement-card">
+          <h3>Practicum I</h3>
+          <p>Whitefish Valley Public School</p>
+          <span class="status-tag">Completed</span>
+          <br>
+          <a href="#practicum-one">View Practicum I</a>
+        </div>
+
+        <div class="placement-card">
+          <h3>Practicum II</h3>
+          <p>Westgate Collegiate & Vocational Institute</p>
+          <span class="status-tag">Upcoming</span>
+          <br>
+          <a href="#practicum-two">View Practicum II</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="practicum-one">
+      <div class="school-header">
+        <img src="logo-whitefish.png" alt="Whitefish Valley Public School logo" class="school-logo">
+        <div>
+          <h2 class="placement-heading">Practicum I</h2>
+          <p class="placement-subtext">Whitefish Valley Public School | 25-day placement | November 10 to December 12</p>
+        </div>
+      </div>
+
+      <h2>Practicum Overview</h2>
+      
+        During Practicum I, I completed a 25-day placement in a Grade 6/7 split classroom at Whitefish Valley Public School, a small rural elementary school with strong ties to the surrounding community. This placement gave me the opportunity to teach and support learning across several subject areas, including mathematics, science, and physical education, while also assisting during broader classroom activities such as literacy and drama. It was a meaningful introduction to the day-to-day realities of classroom teaching and provided important experience in planning, instruction, supervision, assessment, and relationship-building.
+      
+        This placement also introduced me to a classroom context with a wide range of academic readiness, confidence, and learning needs. Some students were working through significant gaps in foundational skills related to attendance challenges and disrupted schooling experiences, which pushed me to think more carefully about support, flexibility, and responsive instruction. At the same time, the strong sense of community within the school helped me see how relationships, belonging, and consistency shape both student engagement and the wider learning environment. Overall, this experience broadened my understanding of teaching and challenged some of my early assumptions about the kinds of settings in which I saw myself working.
+    
+    </section>
+
+    <section class="section">
+      <h2>Professional Growth</h2>
+      <p class="section-intro">
+        Practicum I marked my first sustained experience in a classroom as a teacher candidate. I entered the placement with curiosity, some uncertainty, and a strong willingness to learn. Much of my earlier teaching in teachers college had taken place with classmates in course settings. Those experiences were still valuable, but they did not fully prepare me for the pace, complexity, and relational nature of a real classroom. At the same time, I was bringing with me new learning from my first semester courses in planning, assessment, classroom management, and inclusive practice. This placement became the point where those ideas began to feel less theoretical and more real. I had to carry them into daily decisions, student interactions, and the practical demands of school life.
+      </p>
+
+      <h3>Entering the Placement with Openness and Respect</h3>
+      <p>
+        One of the first things I recognized was that I was entering the school not only as a teacher candidate, but also as a visitor. Because of that, I felt it was important to begin by listening, observing, and learning before trying to take up too much space. Before the placement began, I met with my associate teacher to gain an overview of the classroom culture, the students, the school routines, and the general structure of the day. That meeting helped me enter the placement with more awareness and care. It also reminded me that strong teaching begins with understanding the context in which learning takes place.
+      
+        As the placement continued, I tried to pay attention not only to lessons and classroom tasks, but also to the tone of the school, the relationships between students and staff, and the values that shaped the learning environment. I also made a point of speaking with other teachers and staff members throughout the placement. These conversations helped me better understand the school community, but they also gave me insight into the profession more broadly. I learned practical strategies related to routines, transitions, calm redirection, clear expectations, and the importance of consistency. More broadly, this part of the placement reminded me that professional growth is not limited to the moments when you are teaching at the front of the room. It also comes through observation, humility, and a willingness to learn from those around you.
+      </p>
+
+      <h3>Relationship-Building and Classroom Presence</h3>
+      <p>
+        Relationship-building became one of the most important parts of my growth during Practicum I. Daily classroom interactions helped build familiarity and trust, but some of the most valuable moments happened outside formal lessons. Bus duty, conversations during break times, and helping coach basketball gave me opportunities to get to know students in different settings. Those moments gave me insight into students’ personalities, interests, confidence levels, and social dynamics. They also helped me better understand how students responded to adults, peers, structure, and different expectations across the school day.
+      
+        Getting to know students in these ways improved my teaching. It gave me a better sense of what kinds of examples might feel familiar and engaging in class. For example, many students enjoyed soccer during placement, so when it fit naturally, I could use soccer-based examples to make learning feel more connected to their everyday interests. I found that I did not need to build an entire lesson around a student interest for that connection to matter. Even a small reference or example could make the lesson feel more approachable and relevant. In that sense, relationship-building supported planning as well as classroom climate.
+      
+        These experiences also shaped my classroom presence. I began to understand that presence is not only about confidence while teaching from the front of the room. It is also about being visible, approachable, and consistent in everyday moments. Being involved in the Remembrance Day assembly and the Christmas assembly reinforced this for me. Those events allowed me to participate in school life beyond classroom lessons and to see students in settings where voice, confidence, and belonging mattered in different ways. They also showed me that students are more likely to engage when they feel known and respected by the adults around them. This helped me see relationship-building as part of the foundation of effective teaching rather than something separate from instruction.
+      </p>
+
+      <div class="two-column" style="margin-top: 1.25rem; margin-bottom: 1.25rem;">
+        <div>
+          <figure style="margin: 0;">
+            <img 
+              src="Example Daily plan .png" 
+              alt="Coaching basketball during practicum" 
+              style="width: 100%; height: auto; border-radius: 12px; display: block;"
+            >
+            <figcaption style="margin-top: 0.75rem; color: #44596d; font-size: 0.95rem; line-height: 1.5;">
+              The daily plan gave students a clear sense of the day ahead, helping support routine and preparedness for learning. Community Circle each Monday also gave students time to share about their weekend, build connections, and start the week in a positive classroom environment
+            </figcaption>
+          </figure>
+        </div>
+
+        <div>
+          <h3>Why this mattered for my growth</h3>
+          <p>
+            This part of the placement showed me that classroom presence is shaped in many small moments. The more I got to know students, the better I could anticipate how they might respond to lessons, how much support they might need, and what examples would help them connect with the content. Community Circle helped reinforce this. Giving students time to share about their weekend reminded me that students come into the classroom carrying experiences, emotions, and concerns that can shape their focus, energy, and participation. Being aware of that helped me respond with more care and better understand what students might need on a given day. It also helped me see that students often respond more openly when they feel their teacher is genuinely interested in them as people, not only as learners completing tasks.
+          </p>
+        </div>
+      </div>
+
+      <h3>Differentiation, Readiness, and Responsive Support</h3>
+      <p>
+        Practicum I also helped me see differentiation in a much more practical and concrete way. During the placement, I worked with students who showed very different levels of readiness, confidence, independence, and comfort with school tasks. Some students needed more structure to get started, more reassurance during learning, or more support to stay organized. Others were ready for more independence and could move through tasks more quickly. Seeing that range within one classroom pushed me to think more carefully about what it means to plan responsively.
+      
+        One especially meaningful example came through the Christmas play. Differentiation happened in a way that was visible, practical, and connected to student participation. Students were given different roles based on readiness, comfort, and strengths. Some students took on speaking parts with more lines. Other students, especially those who were less comfortable with public speaking, were still able to contribute in meaningful ways through setting up scenes, managing props, or helping with background decorations. Every student could participate in the production, but not every student was asked to do the same thing in the same way.
+      
+        This experience was important because it helped me understand that fairness does not always mean sameness. It helped me move away from a narrow view of differentiation as only academic modification. Instead, I began to see it more broadly as thinking carefully about access, participation, confidence, and belonging. Differentiation can mean offering students different kinds of support, different entry points, or different ways of contributing to a shared task. That was a valuable shift in my thinking because it made the concept feel much more practical and much more connected to everyday classroom life.
+      </p>
+
+      <div class="two-column" style="margin-top: 1.25rem; margin-bottom: 1.25rem;">
+        <div>
+          <h3>Developing a more responsive mindset</h3>
+          <p>
+            This placement strengthened my understanding that responsive teaching begins with noticing who is in front of you and planning accordingly. It also reminded me that support works best when it is built into the learning from the start. The more I paid attention to readiness, comfort, and participation, the more purposeful my planning became. I began to understand more clearly that a responsive classroom does not ask every student to do the same thing in the same way. It asks whether every student has a meaningful path into the learning.
+          </p>
+        </div>
+
+        <div>
+          <figure style="margin: 0;">
+            <img 
+              src="images/christmas-play.jpg" 
+              alt="Students participating in the Christmas play" 
+              style="width: 100%; height: auto; border-radius: 12px; display: block;"
+            >
+            <figcaption style="margin-top: 0.75rem; color: #44596d; font-size: 0.95rem; line-height: 1.5;">
+              Different roles in the Christmas play helped students contribute in ways that matched their confidence, readiness, and strengths.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <h3>Pacing, Flexibility, and Instructional Decision-Making</h3>
+      <p>
+        Another important area of growth was pacing. Before practicum, it was easier to imagine a lesson unfolding closely to plan. In the classroom, I quickly learned that strong planning still needs flexibility. One mathematics lesson on circles stood out to me in particular. I had planned it as a problem-based lesson, but it ended up taking much longer than I expected. Students needed more time to discuss their ideas, test out their thinking, and work through the task than I had anticipated. As a result, I had to adjust the lesson while teaching and move some parts of the plan forward.
+      
+        That moment helped me think differently about pacing. I began to understand that pacing is not simply about covering everything on schedule. It is about protecting the learning goal while responding to what students need in the moment. In that lesson, taking more time was not a failure of planning. It was part of responding to the depth of student thinking and the kind of support the class needed to make progress. That was an important shift in my thinking because it helped me see flexibility as a strength rather than a sign that the lesson had gone wrong.
+     
+        Relationship-building also supported my growth in this area. As I got to know students better, I developed a stronger sense of how quickly they tended to work, how much discussion time they often needed, and when they might need more modelling or consolidation. In that way, pacing became closely connected to knowing the learners in front of me. The more I understood their readiness and confidence, the more realistic and responsive my planning became.
+      </p>
+
+      <h3>Balancing Accountability with Care</h3>
+      <p>
+        Practicum I also helped me think more carefully about how to hold students to clear expectations while still being caring and respectful. I wanted students to feel supported, but I also needed to help maintain a learning environment where everyone could focus and participate. This meant learning how to be warm and approachable without becoming so flexible that the expectations of the classroom became unclear. I began to understand that care and accountability are not in conflict. In many ways, they strengthen each other.
+     
+        When students called out, spoke without raising their hands, drifted off task, or distracted others, I tried to respond calmly and clearly. Rather than raising my voice, I would often restate the expectation, redirect respectfully, or check in more privately if needed. That approach helped me address behaviour while still preserving students’ dignity. It also helped me see that classroom management is not only about reacting when behaviour becomes a problem. It is also about creating clarity, consistency, and routines that make the classroom feel predictable and supportive.
+      
+        One important takeaway for me was learning how to remain supportive while still protecting the integrity of the learning environment. Students benefit when they know their teacher cares about them, but they also benefit when the teacher remains steady, clear, and consistent. This balance became one of my most meaningful insights from the placement. It shaped the way I now think about classroom management as something rooted in relationships, clarity, and respect rather than control alone.
+      </p>
+
+      <h3>Looking Back on My Growth</h3>
+      <p>
+        Overall, Practicum I broadened my understanding of teaching and strengthened my confidence in my ability to grow within the profession. It helped me think more carefully about how context, relationships, differentiation, pacing, and expectations all work together to shape student learning. It also challenged some of my assumptions about what teaching looks like in practice. I left the placement with a deeper respect for the complexity of the profession and for the many forms that effective teaching can take.
+      
+        Just as importantly, I left with a clearer sense of the educator I want to become. I want to be someone who is attentive to students, responsive to context, thoughtful in planning, and steady in expectations. This placement reminded me that growth in teaching happens through reflection, adaptability, and a willingness to keep learning from students, colleagues, and experience. That understanding became one of the most meaningful outcomes of Practicum I for me.
+      </p>
+
+      <p style="margin-top: 0.75rem; font-size: 0.95rem; color: #44596d;">
+        To respect privacy and confidentiality, formal practicum assessment documents are not included on this website. They can be shared separately upon request.
+      </p>
+    </section>
+
+    
+
+    <section class="section">
+      <h2>Lesson Materials and Student Work From Practicum I</h2>
+      <p class="section-intro">
+        This section highlights a selection of classroom lesson sets developed during Practicum I. Each example brings together
+        the lesson plan, slideshow, worksheet, and student work for the same lesson so that the planning, teaching materials,
+        and evidence of student learning can be viewed together in one place.
+      </p>
+
+      <button class="show-more-button" type="button" aria-expanded="false">Show More</button>
+
+      <div class="collapsible-content">
+        <div class="lesson-showcase-grid" style="grid-template-columns: 1fr; gap: 1.5rem;">
+
+          <div class="lesson-showcase-card">
+            <h3>Lesson Set One</h3>
+            <div class="lesson-tags">
+              <span class="lesson-tag">Grade 6/7</span>
+              <span class="lesson-tag">Lesson Sequence</span>
+              <span class="lesson-tag">Student Work</span>
+            </div>
+            <p>
+              Use this space for a short overview of the lesson focus, what students were learning, and what this lesson set shows
+              about your planning and instruction.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem;">
+              <div>
+                <h4 style="color: #1f4e79; margin-bottom: 0.5rem; font-size: 1rem;">Lesson Plan</h4>
+                <div class="artifact-placeholder" style="min-height: 170px;">Add lesson plan PDF here</div>
+              </div>
+
+              <div>
+                <h4 style="color: #1f4e79; margin-bottom: 0.5rem; font-size: 1rem;">Slideshow</h4>
+                <div class="artifact-placeholder" style="min-height: 170px;">Add lesson slideshow here</div>
+              </div>
+
+              <div>
+                <h4 style="color: #1f4e79; margin-bottom: 0.5rem; font-size: 1rem;">Worksheet</h4>
+                <div class="artifact-placeholder" style="min-height: 170px;">Add worksheet or task sheet here</div>
+              </div>
+
+              <div>
+                <h4 style="color: #1f4e79; margin-bottom: 0.5rem; font-size: 1rem;">Student Work</h4>
+                <div class="artifact-placeholder" style="min-height: 170px;">Add anonymized student work here</div>
+              </div>
+            </div>
+
+            <div class="lesson-reflection-note">
+              <h3>Reflection</h3>
+              <p>
+                Add a short reflection on how students responded to the lesson, what evidence of learning stood out, and what you
+                would refine in a future version.
+              </p>
+            </div>
+          </div>
+
+          <div class="lesson-showcase-card">
+            <h3>Lesson Set Two</h3>
+            <div class="lesson-tags">
+              <span class="lesson-tag">Grade 6/7</span>
+              <span class="lesson-tag">Lesson Sequence</span>
+              <span class="lesson-tag">Student Work</span>
+            </div>
+            <p>
+              Use this space for a short summary of the lesson, the main learning goal, and what this set reveals about your
+              instructional planning and classroom support.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem;">
+              <div>
+                <h4 style="color: #1f4e79; margin-bottom: 0.5rem; font-size: 1rem;">Lesson Plan</h4>
+                <div class="artifact-placeholder" style="min-height: 170px;">Add lesson plan PDF here</div>
+              </div>
+
+              <div>
+                <h4 style="color: #1f4e79; margin-bottom: 0.5rem; font-size: 1rem;">Slideshow</h4>
+                <div class="artifact-placeholder" style="min-height: 170px;">Add lesson slideshow here</div>
+              </div>
+
+              <div>
+                <h4 style="color: #1f4e79; margin-bottom: 0.5rem; font-size: 1rem;">Worksheet</h4>
+                <div class="artifact-placeholder" style="min-height: 170px;">Add worksheet or task sheet here</div>
+              </div>
+
+              <div>
+                <h4 style="color: #1f4e79; margin-bottom: 0.5rem; font-size: 1rem;">Student Work</h4>
+                <div class="artifact-placeholder" style="min-height: 170px;">Add anonymized student work here</div>
+              </div>
+            </div>
+
+            <div class="lesson-reflection-note">
+              <h3>Reflection</h3>
+              <p>
+                Add a short reflection on what students understood well, what challenges came up, and what this lesson taught you
+                about pacing, instruction, or support.
+              </p>
+            </div>
+          </div>
+
+          <div class="lesson-showcase-card">
+            <h3>Lesson Set Three</h3>
+            <div class="lesson-tags">
+              <span class="lesson-tag">Grade 6/7</span>
+              <span class="lesson-tag">Lesson Sequence</span>
+              <span class="lesson-tag">Student Work</span>
+            </div>
+            <p>
+              Use this space to describe another lesson example and how the materials included here worked together to support
+              student learning during the lesson.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem;">
+              <div>
+                <h4 style="color: #1f4e79; margin-bottom: 0.5rem; font-size: 1rem;">Lesson Plan</h4>
+                <div class="artifact-placeholder" style="min-height: 170px;">Add lesson plan PDF here</div>
+              </div>
+
+              <div>
+                <h4 style="color: #1f4e79; margin-bottom: 0.5rem; font-size: 1rem;">Slideshow</h4>
+                <div class="artifact-placeholder" style="min-height: 170px;">Add lesson slideshow here</div>
+              </div>
+
+              <div>
+                <h4 style="color: #1f4e79; margin-bottom: 0.5rem; font-size: 1rem;">Worksheet</h4>
+                <div class="artifact-placeholder" style="min-height: 170px;">Add worksheet or task sheet here</div>
+              </div>
+
+              <div>
+                <h4 style="color: #1f4e79; margin-bottom: 0.5rem; font-size: 1rem;">Student Work</h4>
+                <div class="artifact-placeholder" style="min-height: 170px;">Add anonymized student work here</div>
+              </div>
+            </div>
+
+            <div class="lesson-reflection-note">
+              <h3>Reflection</h3>
+              <p>
+                Add a short reflection on student engagement, how the materials supported learning, and what adjustments you would
+                make next time.
+              </p>
+            </div>
+          </div>
+
+          <div class="lesson-showcase-card">
+            <h3>Lesson Set Four</h3>
+            <div class="lesson-tags">
+              <span class="lesson-tag">Grade 6/7</span>
+              <span class="lesson-tag">Lesson Sequence</span>
+              <span class="lesson-tag">Student Work</span>
+            </div>
+            <p>
+              Use this space for another lesson set that helps show variety in your planning, classroom resources, and student
+              responses during Practicum I.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem;">
+              <div>
+                <h4 style="color: #1f4e79; margin-bottom: 0.5rem; font-size: 1rem;">Lesson Plan</h4>
+                <div class="artifact-placeholder" style="min-height: 170px;">Add lesson plan PDF here</div>
+              </div>
+
+              <div>
+                <h4 style="color: #1f4e79; margin-bottom: 0.5rem; font-size: 1rem;">Slideshow</h4>
+                <div class="artifact-placeholder" style="min-height: 170px;">Add lesson slideshow here</div>
+              </div>
+
+              <div>
+                <h4 style="color: #1f4e79; margin-bottom: 0.5rem; font-size: 1rem;">Worksheet</h4>
+                <div class="artifact-placeholder" style="min-height: 170px;">Add worksheet or task sheet here</div>
+              </div>
+
+              <div>
+                <h4 style="color: #1f4e79; margin-bottom: 0.5rem; font-size: 1rem;">Student Work</h4>
+                <div class="artifact-placeholder" style="min-height: 170px;">Add anonymized student work here</div>
+              </div>
+            </div>
+
+            <div class="lesson-reflection-note">
+              <h3>Reflection</h3>
+              <p>
+                Add a short reflection on what this lesson shows about your growth in planning, instruction, differentiation, or
+                responding to student learning.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="practicum-two">
+      <div class="school-header">
+        <img src="logo-westgate.png" alt="Westgate logo" class="school-logo">
+        <div>
+          <h2 class="placement-heading">Practicum II</h2>
+          <p class="placement-subtext">Westgate Collegiate &amp; Vocational Institute | Upcoming placement | 27 days | March 23 to April 30</p>
+        </div>
+      </div>
+
+      <h2>Practicum Overview</h2>
+      
+        My second practicum placement will take place at Westgate Collegiate &amp; Vocational Institute and will provide an important opportunity to continue building my confidence, judgment, and instructional practice in a secondary school setting. This placement will involve teaching in Grade 11 University Physics (SPH3U) and Grade 12 University Physics (SPH4U), alongside a de-streamed grade 9 mathematics course (MTH1W).
+
+        This placement represents a meaningful shift from my first practicum. While my first placement took place in a Grade 6/7 elementary classroom, this experience will involve older students, a different school environment, and more subject-specific teaching within my teachable areas. I expect this to deepen my understanding of how planning, instruction, assessment, and classroom relationships can look different across contexts and age groups.
+      
+        Although I am still early in my professional development and have much to learn, I am eager to apply what I gained from my first practicum to this new setting. I hope to continue refining my teaching practice through practical experience, reflection, and increased responsibility in planning and delivering instruction within my teachable subjects.
+      
+
+      
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Goals for Practicum II</h2>
+      <p>
+        As I begin my second practicum, I want to build on the foundation developed during my first placement while continuing to grow in confidence, instructional judgment, and responsiveness. Because this placement involves a secondary setting and more subject-specific teaching in physics and mathematics, I see it as an important opportunity to deepen both my practical experience and my understanding of effective teaching. My goal is to apply what I learned during my first practicum while continuing to grow through planning, instruction, assessment, reflection, and mentorship.
+      </p>
+
+      <div class="practicum2-goals">
+        <div class="practicum2-goal-item">
+          <div class="practicum2-goal-check"></div>
+          <div class="practicum2-goal-content">
+            <h3>Develop Inquiry-Based Instruction</h3>
+            <p>
+              I aim to deepen my understanding of what effective inquiry-based instruction looks like in a secondary classroom, particularly within physics. While I have explored inquiry through coursework, I want to refine my ability to implement it in practice through lesson delivery, pacing, questioning, and instructional guidance. This will help me better understand how to structure inquiry so that it is purposeful, manageable, and supportive of conceptual understanding rather than simply open-ended activity.
+            </p>
+          </div>
+        </div>
+
+        <div class="practicum2-goal-item">
+          <div class="practicum2-goal-check"></div>
+          <div class="practicum2-goal-content">
+            <h3>Strengthen Subject-Specific Practice</h3>
+            <p>
+              I want to further develop my practice within physics and mathematics so that I can explain complex ideas with greater clarity, anticipate misconceptions more effectively, and scaffold learning in ways that are both accessible and conceptually strong. This placement will help me refine how I present content, guide problem solving, and design lessons that are engaging, coherent, and responsive to student needs.
+            </p>
+          </div>
+        </div>
+
+        <div class="practicum2-goal-item">
+          <div class="practicum2-goal-check"></div>
+          <div class="practicum2-goal-content">
+            <h3>Deepen Assessment Practice</h3>
+            <p>
+              I aim to strengthen my assessment practice in the secondary classroom, with particular attention to formative assessment, assessment as learning, and assessment of learning. I want to build greater confidence in designing meaningful assessment tasks, providing useful and timely feedback, and using evidence of student learning to inform instructional decisions and next steps.
+            </p>
+          </div>
+        </div>
+
+        <div class="practicum2-goal-item">
+          <div class="practicum2-goal-check"></div>
+          <div class="practicum2-goal-content">
+            <h3>Improve Unit Planning</h3>
+            <p>
+              I want to strengthen my ability to think about planning on a broader scale by developing a clearer understanding of how ideas progress throughout a unit over time. This includes refining my sense of pacing, curriculum flow, sequencing, and the ways lessons build on one another across a larger stretch of learning. I aim to become more confident in planning not only individual lessons, but also the overall progression of a unit in a way that is coherent, realistic, and responsive to student learning.
+            </p>
+          </div>
+        </div>
+
+        
+
+        
+      </div>
+    </section>
+
+
+    <section class="section">
+      <h2>Looking Forward</h2>
+      <p class="closing">
+        My practicum experiences continue to shape my identity as an educator. Each placement provides new opportunities to reflect,
+        refine my practice, and deepen my understanding of how to support student learning in meaningful and inclusive ways. As I move
+        from my first practicum into my second, I look forward to continuing to strengthen my planning, instruction, assessment, and
+        classroom leadership while building on the foundations established through earlier experiences.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Jett Dobson | Teaching Portfolio</p>
+  </footer>
+
+  <script>
+    const toggleButtons = document.querySelectorAll('.show-more-button');
+
+    toggleButtons.forEach((button) => {
+      const content = button.nextElementSibling;
+
+      button.addEventListener('click', () => {
+        const isOpen = content.classList.contains('open');
+
+        if (isOpen) {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          requestAnimationFrame(() => {
+            content.style.maxHeight = '0px';
+            content.classList.remove('open');
+          });
+          button.textContent = 'Show More';
+          button.setAttribute('aria-expanded', 'false');
+        } else {
+          content.classList.add('open');
+          content.style.maxHeight = content.scrollHeight + 'px';
+          button.textContent = 'Show Less';
+          button.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.collapsible-content.open').forEach((content) => {
+        content.style.maxHeight = content.scrollHeight + 'px';
+      });
+    });
+  </script>
+</body>
+</html>

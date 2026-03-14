@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Educational CV | Jett Dobson</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f7f9fc;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1f4e79;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .hero {
+      background-color: #dce8f5;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      color: #1f2d3d;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero p {
+      max-width: 850px;
+      margin: 0 auto;
+      font-size: 1.08rem;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .section {
+      background: white;
+      padding: 2rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      margin-bottom: 2rem;
+    }
+
+    .section h2 {
+      color: #1f4e79;
+      margin-bottom: 0.9rem;
+      font-size: 1.7rem;
+    }
+
+    .section-intro {
+      margin-bottom: 1.25rem;
+    }
+
+    .document-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.25rem;
+    }
+
+    .document-button {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #1f4e79;
+      color: white;
+      padding: 0.75rem 1.15rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: opacity 0.2s ease;
+    }
+
+    .document-button:hover {
+      opacity: 0.92;
+    }
+
+    .document-button.secondary {
+      background-color: #eef5fc;
+      color: #1f4e79;
+      border: 1px solid #cbd8e6;
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .highlight-card {
+      background-color: #f3f7fb;
+      padding: 1.2rem;
+      border-radius: 12px;
+      border-left: 5px solid #1f4e79;
+    }
+
+    .highlight-card h3 {
+      color: #1f4e79;
+      margin-bottom: 0.6rem;
+      font-size: 1.1rem;
+    }
+
+    .pdf-preview-box {
+      margin-top: 1.25rem;
+      border: 1px solid #d9e4ef;
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: #f8fbfe;
+    }
+
+    .pdf-preview-header {
+      padding: 1rem 1.25rem;
+      background-color: #eef5fc;
+      border-bottom: 1px solid #d9e4ef;
+    }
+
+    .pdf-preview-header h3 {
+      color: #1f4e79;
+      margin-bottom: 0.35rem;
+    }
+
+    .pdf-preview {
+      width: 100%;
+      height: 850px;
+      border: none;
+      display: block;
+      background: white;
+    }
+
+    .pdf-fallback {
+      padding: 1rem 1.25rem;
+      background-color: #ffffff;
+      border-top: 1px solid #d9e4ef;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #1f4e79;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 850px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .pdf-preview {
+        height: 600px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .section {
+        padding: 1.25rem;
+      }
+
+      .hero {
+        padding: 2rem 1rem;
+      }
+
+      .pdf-preview {
+        height: 450px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="site-title">Jett Dobson | Teaching Portfolio</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">About Me</a></li>
+          <li><a href="teaching-philosophy.html">Teaching Philosophy</a></li>
+          <li><a href="lesson-plans.html">Evidence of Practice</a></li>
+          <li><a href="practicum.html">Practicum</a></li>
+          <li><a href="resume.html">Educational CV</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Educational CV</h1>
+    <p>
+      This section provides my educational curriculum vitae, including my academic background,
+      teaching experience, practicum work, related leadership, and professional development.
+    </p>
+  </section>
+
+  <main class="container">
+    <section class="section">
+      <h2>Educational CV</h2>
+      <p class="section-intro">
+        My educational CV provides a fuller picture of my background as an emerging educator. It includes
+        my education, teaching experience, relevant employment and volunteer work, and other
+        experiences that support my growth in education.
+      </p>
+    </section>
+
+    
+
+    <section class="section">
+      <h2>CV Preview</h2>
+
+      <div class="pdf-preview-box">
+        <div class="pdf-preview-header">
+          <h3>Educational CV</h3>
+          <p>
+            View my full educational CV directly in the embedded viewer below or open it in a new tab to download or print.
+          </p>
+        </div>
+
+        <iframe
+          class="pdf-preview"
+          src="Jett_Dobson_Educational_CV.pdf#view=FitH"
+          title="Educational CV PDF Preview"
+        ></iframe>
+
+        <div class="pdf-fallback">
+          <p>
+            If the preview does not appear in your browser,
+            <a href="Jett_Dobson_Educational_CV.pdf" target="_blank" rel="noopener noreferrer">open the CV in a new tab</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Jett Dobson | Teaching Portfolio</p>
+  </footer>
+</body>
+</html>

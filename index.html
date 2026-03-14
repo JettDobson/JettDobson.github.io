@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jett Dobson | Teaching Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      background-color: #f7f9fc;
+      color: #222;
+    }
+
+    header {
+      background-color: #1f4e79;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .hero {
+      background-color: #dce8f5;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #1f2d3d;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .section {
+      background: white;
+      margin-bottom: 2rem;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .section h2 {
+      margin-bottom: 1rem;
+      color: #1f4e79;
+    }
+
+    .land-acknowledgement {
+      background-color: #eef5fc;
+      border-left: 5px solid #1f4e79;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: 3rem auto;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .about-photo {
+      grid-column: 1;
+      grid-row: 2;
+      align-self: center;
+      position: relative;
+    }
+
+    .about-title {
+      position: absolute;
+      top: -3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 250px;
+      margin: 0;
+      color: #1f4e79;
+      text-align: center;
+    }
+
+    .about-text {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .profile-photo-container {
+      width: 100%;
+      max-width: 250px;
+      margin: 0 auto;
+    }
+
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .quick-facts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .fact-card,
+    .tab-card {
+      background-color: #f3f7fb;
+      padding: 1.2rem;
+      border-radius: 10px;
+      border-left: 5px solid #1f4e79;
+    }
+
+    .tab-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .tab-grid .tab-card {
+      flex: 0 1 calc(33.333% - 1rem);
+      min-width: 220px;
+      max-width: 320px;
+    }
+
+    .tab-card a {
+      display: inline-block;
+      margin-top: 0.75rem;
+      color: #1f4e79;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .tab-card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #1f4e79;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .tab-grid .tab-card {
+        flex: 0 1 calc(50% - 1rem);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: 3rem auto auto;
+      }
+
+      .about-photo {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .about-text {
+        grid-column: 1;
+        grid-row: 3;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .tab-grid .tab-card {
+        flex: 0 1 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="site-title">Jett Dobson | Teaching Portfolio</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">About Me</a></li>
+          <li><a href="teaching-philosophy.html">Teaching Philosophy</a></li>
+          <li><a href="lesson-plans.html">Evidence of Practice</a></li>
+          <li><a href="practicum.html">Practicum</a></li>
+          <li><a href="resume.html">Educational CV</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to My Teaching Portfolio</h1>
+    <p>
+      Hello, I’m Jett Dobson. This portfolio highlights my growth as an educator, my teaching values,
+      and the work I have completed in support of student learning, inclusion, and meaningful classroom practice.
+    </p>
+  </section>
+
+  <main class="container">
+    <section class="section">
+      <div class="about-layout">
+        <div class="about-photo">
+          <h2 class="about-title">About Me</h2>
+          <div class="profile-photo-container">
+            <img src="GC_Photo.png" alt="Professional photo of Jett Dobson" class="profile-photo">
+          </div>
+        </div>
+
+        <div class="about-text">
+          <p>
+            I was born and raised in Thunder Bay, Ontario, and my experiences growing up here have shaped both who I am and how I approach teaching. I graduated from high school in Thunder Bay through the French immersion program and earned my DELF certification. Throughout my school years, I was deeply involved in sport, competing at the provincial and national levels in cross-country skiing, biathlon, swimming, and running. I later continued my athletic career as a varsity runner with the Lakehead track and cross-country team while completing my Honours Bachelor of Science in Physics (with a biomedical concentration) at Lakehead University.
+          </p>
+          <br>
+          <p>
+            Although I was initially set on pursuing a career in physics or mathematics, my experiences working with others gradually led me toward education. Through roles in science outreach, free coding camps with Superior Science, and work in medical physics and research settings, I found that I was most fulfilled when helping others build understanding, confidence, and curiosity. These experiences showed me the value of breaking down complex ideas, making learning accessible, and encouraging students to think critically about the world around them. I was fortunate to learn from excellent teachers throughout my own educational journey, and that has inspired me to become the kind of educator who helps students feel supported, capable, and engaged in their learning.
+          </p>
+          <br>
+          <p>
+            Outside of education, I enjoy spending time outdoors and taking advantage of everything Thunder Bay has to offer. Whether I am hiking a trail, swimming or skating (depending on the season), or spending time fishing, being outdoors continues to be an important part of my life. These experiences have helped shape my appreciation for reflection, balance, and connection to the world around me, all of which influence the kind of classroom community I hope to build.
+          </p>
+        </div>
+      </div>
+
+      <div class="quick-facts">
+        <div class="fact-card">
+          <h3>Teachable Subjects</h3>
+          <p>(I/S) Physics & Mathematics</p>
+        </div>
+        <div class="fact-card">
+          <h3>Educational Background</h3>
+            <p>Honours B.Sc. in Physics (completed)</p>
+            <p>Bachelor of Education, Lakehead University (in progress)</p>
+        </div>
+        
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Explore My Portfolio</h2>
+      <p>
+        Use the tabs below or the navigation bar above to explore different parts of my portfolio.
+      </p>
+
+      <div class="tab-grid">
+        <div class="tab-card">
+          <h3>Teaching Philosophy</h3>
+          <p>Learn about my beliefs about teaching, learning, inclusion, and student success.</p>
+          <a href="teaching-philosophy.html">View Page</a>
+        </div>
+
+        <div class="tab-card">
+          <h3>Evidence of Practice</h3>
+          <p>Browse sample lesson plans, instructional strategies, and classroom learning tasks.</p>
+          <a href="lesson-plans.html">View Page</a>
+        </div>
+
+        <div class="tab-card">
+          <h3>Practicum Experience</h3>
+          <p>See reflections, professional growth, and examples from placement experiences.</p>
+          <a href="practicum.html">View Page</a>
+        </div>
+
+        <div class="tab-card">
+          <h3>CV</h3>
+          <p>Access my education, teaching experience, and related work experience.</p>
+          <a href="resume.html">View Page</a>
+        </div>
+
+        <div class="tab-card">
+          <h3>Contact</h3>
+          <p>Find ways to get in touch with me for professional connections or opportunities.</p>
+          <a href="contact.html">View Page</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section land-acknowledgement">
+      <h2>Land Acknowledgement</h2>
+      <p>
+        I respectfully acknowledge that I live, learn, and teach on the traditional territory of the Anishinaabe peoples, within the Robinson-Superior Treaty of 1850, on the lands of Fort William First Nation. I recognize the enduring presence, histories, and contributions of First Nations, Inuit, and Métis Peoples, and I am committed to ongoing learning, reflection, and respectful relationship-building in my personal and professional practice.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Jett Dobson | Teaching Portfolio</p>
+  </footer>
+</body>
+</html>

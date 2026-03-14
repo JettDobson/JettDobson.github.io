@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evidence of Practice | Jett Dobson</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f7f9fc;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1f4e79;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .hero {
+      background-color: #dce8f5;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      color: #1f2d3d;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.08rem;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .section {
+      background: white;
+      padding: 2rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      margin-bottom: 2rem;
+    }
+
+    .section h2 {
+      color: #1f4e79;
+      margin-bottom: 0.8rem;
+      font-size: 1.7rem;
+    }
+
+    .section-intro {
+      margin-bottom: 1.25rem;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .category-card {
+      background-color: #f3f7fb;
+      padding: 1.4rem;
+      border-radius: 12px;
+      border-left: 5px solid #1f4e79;
+    }
+
+    .category-card h3 {
+      color: #1f4e79;
+      margin-bottom: 0.75rem;
+      font-size: 1.15rem;
+    }
+
+    .category-card p {
+      margin-bottom: 0.75rem;
+    }
+
+    .category-card ul {
+      margin-left: 1.25rem;
+    }
+
+    .category-card li {
+      margin-bottom: 0.45rem;
+    }
+
+    .sample-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      align-items: start;
+    }
+
+    .sample-box,
+    .annotation-box,
+    .note-box {
+      background-color: #f8fbfe;
+      border: 1px solid #d9e4ef;
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .sample-box h3,
+    .annotation-box h3,
+    .note-box h3 {
+      color: #1f4e79;
+      margin-bottom: 0.75rem;
+    }
+
+    .artifact-placeholder {
+      margin-top: 1rem;
+      min-height: 180px;
+      border: 2px dashed #8ea9c5;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      color: #4c6782;
+      background-color: #eef5fc;
+    }
+
+    .subpage-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+      align-items: stretch;
+    }
+
+    .subpage-card {
+      background-color: #eef5fc;
+      padding: 1.1rem;
+      border-radius: 10px;
+      border-left: 5px solid #1f4e79;
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .subpage-card h3 {
+      color: #1f4e79;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    .caption-note {
+      margin-top: 1rem;
+      font-style: italic;
+      color: #44596d;
+    }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .quick-links a {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #eef5fc;
+      color: #1f4e79;
+      padding: 0.65rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      border: 1px solid #cbd8e6;
+    }
+
+    .quick-links a:hover {
+      background-color: #dce8f5;
+    }
+
+    .lesson-library-grid,
+    .resource-grid,
+    .reflection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .lesson-library-card,
+    .resource-card,
+    .reflection-card {
+      background-color: #f3f7fb;
+      padding: 1.2rem;
+      border-radius: 12px;
+      border-left: 5px solid #1f4e79;
+    }
+
+    .lesson-library-card h3,
+    .resource-card h3,
+    .reflection-card h3 {
+      color: #1f4e79;
+      margin-bottom: 0.6rem;
+    }
+
+    .lesson-entry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .lesson-entry {
+      background-color: #f8fbfe;
+      border: 1px solid #d9e4ef;
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .lesson-entry h3 {
+      color: #1f4e79;
+      margin-bottom: 0.5rem;
+    }
+
+    .lesson-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .tag {
+      background-color: #e4eef8;
+      color: #1f4e79;
+      border-radius: 999px;
+      padding: 0.25rem 0.7rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .lesson-reflection {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #d9e4ef;
+    }
+
+    .lesson-reflection h4 {
+      color: #1f4e79;
+      margin-bottom: 0.45rem;
+    }
+
+    .show-more-button {
+      display: inline-block;
+      margin-top: 0.2rem;
+      padding: 0.65rem 1rem;
+      background-color: #1f4e79;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .show-more-button:hover {
+      opacity: 0.92;
+    }
+
+    .collapsible-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.45s ease, opacity 0.3s ease, margin-top 0.3s ease;
+      margin-top: 0;
+    }
+
+    .collapsible-content.open {
+      opacity: 1;
+      margin-top: 1rem;
+    }
+
+    .artifact-showcase {
+      margin-top: 1.5rem;
+    }
+
+    .artifact-showcase + .artifact-showcase {
+      margin-top: 2rem;
+    }
+
+    .artifact-header-box {
+      background-color: #f8fbfe;
+      border: 1px solid #d9e4ef;
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .artifact-header-box h3 {
+      color: #1f4e79;
+      margin-bottom: 0.65rem;
+    }
+
+    .pdf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .pdf-card {
+      background-color: #f8fbfe;
+      border: 1px solid #d9e4ef;
+      border-radius: 12px;
+      padding: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .pdf-card h4 {
+      color: #1f4e79;
+      margin-bottom: 0.75rem;
+      font-size: 1.05rem;
+      text-align: center;
+    }
+
+    .pdf-frame {
+      width: 100%;
+      height: 420px;
+      border: 1px solid #d9e4ef;
+      border-radius: 10px;
+      background: white;
+    }
+
+    .pdf-controls {
+      margin-top: auto;
+      padding-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .pdf-switch-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      width: 100%;
+    }
+
+    .pdf-switch-button {
+      display: inline-block;
+      background-color: #eef5fc;
+      color: #1f4e79;
+      padding: 0.55rem 0.9rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 1px solid #cbd8e6;
+      cursor: pointer;
+    }
+
+    .pdf-switch-button.active {
+      background-color: #1f4e79;
+      color: white;
+      border-color: #1f4e79;
+    }
+
+    .pdf-open-wrap {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .pdf-open-button {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #1f4e79;
+      color: white;
+      padding: 0.55rem 0.9rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      min-width: 145px;
+      text-align: center;
+    }
+
+    .pdf-open-button:hover {
+      opacity: 0.92;
+    }
+
+    .artifact-reflection {
+      margin-top: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #1f4e79;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 850px) {
+      .sample-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .section {
+        padding: 1.25rem;
+      }
+
+      .hero {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="site-title">Jett Dobson | Teaching Portfolio</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">About Me</a></li>
+          <li><a href="teaching-philosophy.html">Teaching Philosophy</a></li>
+          <li><a href="lesson-plans.html">Evidence of Practice</a></li>
+          <li><a href="practicum.html">Practicum</a></li>
+          <li><a href="resume.html">Educational CV</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Evidence of Practice</h1>
+    <p>
+      This section highlights lessons, assignments, resources, and teaching artifacts that reflect my development as an educator across coursework and practicum. It includes materials I have designed, adapted, reflected on, and, where applicable, put into practice in classroom settings. These examples show my growth in planning, assessment, inquiry-based teaching, differentiation, and the development of meaningful learning experiences, while also demonstrating how my coursework and practicum experiences continue to shape my professional practice.
+    </p>
+  </section>
+
+  <main class="container">
+    <section class="section">
+      <h2>Overview</h2>
+      <p class="section-intro">
+        The purpose of this section is to present artifacts, short annotations, and reflection that demonstrate my development as an educator through coursework, practicum, and professional learning. Rather than grouping materials only by subject or course, this page is organized by major areas of teaching practice, including planning, assessment, inquiry and problem-based learning, inclusive practice, classroom environment, professional resources, and lesson-based reflection.
+      </p>
+
+      <div class="subpage-grid">
+        <div class="subpage-card">
+          <h3>Lesson and Unit Design</h3>
+          <p>Planning documents, templates, and reflections that show how I organize lessons, sequence learning, and approach instructional design.</p>
+        </div>
+
+        <div class="subpage-card">
+          <h3>Assessment</h3>
+          <p>Artifacts and reflections that show how I understand assessment, use formative and summative approaches, and think about metacognition in learning.</p>
+        </div>
+
+        <div class="subpage-card">
+          <h3>Inquiry and Problem-Based Learning</h3>
+          <p>Examples from mathematics and physics that show how I use inquiry, problem solving, collaboration, and evidence-based reasoning to support learning.</p>
+        </div>
+
+        <div class="subpage-card">
+          <h3>Differentiation and Inclusive Practice</h3>
+          <p>Materials that reflect accommodations, multiple entry points, visual supports, manipulatives, and planning for a range of learners.</p>
+        </div>
+
+        <div class="subpage-card">
+          <h3>Collaboration and Learning Environment</h3>
+          <p>Artifacts that show how I think about classroom culture, discussion, group learning, participation, and positive classroom relationships.</p>
+        </div>
+
+        <div class="subpage-card">
+          <h3>Classroom Management and Learning Environment</h3>
+          <p>Examples and reflection related to routines, structure, task design, student accountability, and the development of a supportive classroom environment.</p>
+        </div>
+
+        <div class="subpage-card">
+          <h3>Resources for Professional Practice</h3>
+          <p>Curriculum documents, textbooks, professional books, articles, and planning resources that support my instruction and ongoing professional growth.</p>
+        </div>
+
+        <div class="subpage-card">
+          <h3>Lessons, Resources, and Reflection</h3>
+          <p>Selected math and science lessons, teaching resources, and reflective prompts that show how I connect planning, instruction, and professional learning.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Lesson and Unit Design</h2>
+      <p class="section-intro">
+        This section focuses on how I approach planning and the structures I use to organize instruction. My planning begins with the Ontario curriculum, where I identify the overall and specific expectations that need to be addressed, then work backward to develop learning goals, success criteria, assessment opportunities, and instructional sequences. Rather than focusing only on subject-specific artifacts, this section highlights the planning processes, templates, and documents that guide my preparation across teaching contexts.
+      </p>
+      <button class="show-more-button" type="button" aria-expanded="false">Show More</button>
+
+      <div class="collapsible-content">
+        <div class="category-grid" style="grid-template-columns: 1fr;">
+          <div class="category-card">
+            <h3>My Approach to Unit Planning</h3>
+            
+              Unit planning asks me to think beyond single lessons and consider how learning develops over time. When I plan a unit, I begin with the curriculum and the resources available to me. I use curriculum documents, textbooks, and other supports to shape the sequence of learning. From there, I think about how concepts connect and where students may need consolidation. I also try to balance direct instruction with inquiry, discussion, problem solving, labs, and practice. This helps create a unit that is varied, engaging, and responsive to different learning needs.
+
+              Pacing is another important part of my planning. I try to build in flexibility, include buffer time, and avoid plans that feel too rigid. I also think about the rhythm of the week when organizing lessons and assessments. Some days may be better suited for heavier instruction, while others may support review, reflection, or hands-on work. This helps make the unit more realistic and manageable in an actual classroom.
+
+              At the same time, unit planning is still an area where I am building experience. Because of that, I also value feedback from peers when developing a unit plan. Their insight helps me think more carefully about pacing, workload, and whether the plan feels reasonable and teachable. This reminds me that strong planning is not only about organization. It is also about reflection, collaboration, and being willing to adjust ideas to better support student learning.
+            
+          </div>
+        </div>
+
+        <div class="sample-layout" style="grid-template-columns: 1fr 1fr; align-items: stretch;">
+          <div class="sample-box">
+            <h3>Sample Unit Plan</h3>
+            <iframe
+              src="Sample_Unit_Plan_Physics_Dobson_Final.pdf"
+              title="Sample Unit Plan"
+              style="width: 100%; height: 420px; border: 1px solid #d9e4ef; border-radius: 10px; margin-top: 0.75rem; background: white;">
+            </iframe>
+          </div>
+
+          <div class="annotation-box">
+            <h3>Unit Plan Assignment Overview</h3>
+            
+              This unit plan was developed as part of an assignment in my Physics Curriculum and Instruction course. It shows how I organize learning across a sequence of classes rather than planning lessons one at a time in isolation. The plan outlines curriculum alignment, topic sequencing, pacing, assessment opportunities, and the overall development of learning across the unit. It also shows how I approach the balance of instruction, practice, inquiry, application, and consolidation over time. Including this work in my portfolio helps show the larger planning decisions that support classroom teaching, including how lessons connect, how ideas build across the unit, and where flexibility may be needed.
+            
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top: 1rem;">
+          <h3>Reflection on the Unit Plan Assignment</h3>
+          
+            Creating this unit plan helped me think more deeply about how learning develops across a longer stretch of time rather than from lesson to lesson in isolation. One of the most helpful parts of the experience was seeing the unit plans created by others in the course. Looking at a variety of approaches showed me that unit planning involves many thoughtful decisions about sequencing, pacing, assessment, and flexibility, and that those decisions can look different depending on the content and context. It pushed me to think more carefully about what students need at different points in a unit, where consolidation may be necessary, and how to create a plan that is both purposeful and realistic. More broadly, this experience helped me see that unit planning is not just a matter of organization, but a deeper form of instructional thinking. It also reinforced the value of collaboration and peer feedback, especially as I continue building confidence and experience with longer-range planning.
+          
+        </div>
+
+        <div class="category-grid" style="grid-template-columns: 1fr; margin-top: 1.5rem;">
+          <div class="category-card">
+            <h3>How I Approach Lesson Planning</h3>
+            
+              When planning individual lessons, I begin by identifying what students need to know, understand, and be able to do by the end of the lesson. From there, I work to develop clear learning goals, appropriate success criteria, and a lesson flow that helps students move from introduction and modelling toward guided practice, application, and reflection.
+            
+              My lesson planning is informed by curriculum documents, formative assessment, professional feedback, class context, textbooks for content support, and conversations with others. I also draw on ideas from coursework, mentor input, and other teaching resources when thinking about how to structure learning in a way that is clear, engaging, and accessible.
+            
+              In practice, I want my lessons to balance explicit instruction with opportunities for discussion, guided practice, problem solving, hands-on learning, and student participation. I see lesson planning as both an organizational tool and a thinking process that helps me prepare to respond to learners more effectively.
+            
+          </div>
+        </div>
+
+        <div class="sample-layout" style="grid-template-columns: 1fr 1fr; align-items: stretch; margin-top: 1.5rem;">
+          <div class="sample-box">
+            <h3>Lesson Planning Templates</h3>
+            <iframe
+              id="lesson-template-viewer"
+              src="Lesson Plan Template Sample 3.pdf"
+              title="Lesson Plan Template Viewer"
+              style="width: 100%; height: 420px; border: 1px solid #d9e4ef; border-radius: 10px; margin-top: 0.75rem; background: white;">
+            </iframe>
+
+            <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.75rem;">
+              <button
+                type="button"
+                onclick="document.getElementById('lesson-template-viewer').src='Lesson Plan Template Sample 3.pdf';"
+                style="display: inline-block; background-color: #1f4e79; color: white; padding: 0.7rem 1rem; border-radius: 8px; font-weight: 600; border: none; cursor: pointer;">
+                View Template 1
+              </button>
+
+              <button
+                type="button"
+                onclick="document.getElementById('lesson-template-viewer').src='Sample Math Lesson Planning Template from TIPS4RM.pdf';"
+                style="display: inline-block; background-color: #eef5fc; color: #1f4e79; padding: 0.7rem 1rem; border-radius: 8px; font-weight: 600; border: 1px solid #cbd8e6; cursor: pointer;">
+                View Template 2
+              </button>
+            </div>
+          </div>
+
+          <div class="annotation-box">
+            <h3>Lesson Planning Template Overview</h3>
+            
+              These templates show the planning formats I use when preparing individual lessons. They provide an organizational structure for thinking through learning goals, success criteria, lesson flow, instructional strategies, materials, assessment opportunities, and consolidation.
+            
+              One of the templates reflects a three-part lesson structure that helps guide thinking through the opening, development, and closing of a lesson while also keeping assessment and classroom organization in view.
+            
+              Including these templates shows how I use structured planning tools to prepare for instruction in a clear and intentional way. They help me think ahead about how learning will be introduced, what supports students may need, and how I want the lesson to progress.
+            
+              At this stage of my development, these templates are useful because they provide a strong framework for planning while I continue building confidence in making instructional decisions.
+            
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top: 1rem;">
+          <h3>Reflection on Lesson Planning Templates</h3>
+          
+            Working with lesson planning templates has helped me become more intentional in how I prepare for instruction. Rather than planning only around content, the templates push me to think about how students will engage with the lesson, what supports may be needed, how assessment can be built in, and how the lesson should close in a meaningful way.
+          
+            One of the most valuable aspects of using these templates is that they make my planning more organized and focused. They help me consider pacing, transitions, materials, guided practice, and opportunities for reflection before entering the classroom.
+          
+            This process has also shown me that lesson planning is not just a requirement to complete before teaching. It is a way of thinking through instruction carefully so that the lesson is purposeful, coherent, and more responsive to student needs.
+          
+            Overall, these templates reflect my developing approach to planning and show how structure can support stronger preparation while I continue learning how to design effective lessons in real classroom settings.
+          
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Assessment</h2>
+      <p class="section-intro">
+        This section highlights how I understand and use assessment as an essential part of teaching and learning. I view assessment not only as a way to measure student progress, but also as a way to guide instruction, support reflection, and help students build a clearer understanding of their own learning. The artifacts included here are drawn primarily from coursework and reflect the assessment approaches, tools, and practices I am developing for classroom use. Assessment examples that were implemented directly during practicum are included in other sections of this portfolio where they are connected to specific lessons, placements, and teaching contexts. In my practice, assessment is most valuable when it is purposeful, ongoing, and connected directly to learning goals and success criteria.
+      </p>
+      <button class="show-more-button" type="button" aria-expanded="false">Show More</button>
+      <div class="collapsible-content">
+        <div class="sample-box" style="margin-top: 1.25rem;">
+          <h3>How I Understand Assessment in Practice</h3>
+
+          <div style="float: left; width: 400px; max-width: 60%; margin: 0 1.25rem 0 0;">
+            <figure style="margin: 0;">
+              <img
+                src="Assessment intro image.png"
+                alt="Assessment visual"
+                style="width: 100%; height: auto; display: block; border: 1px solid #d9e4ef; border-radius: 10px; background: white;">
+            </figure>
+          </div>
+
+          I understand assessment as an essential part of the learning process rather than something that happens only after instruction is finished. In my practice, assessment is most effective when it is connected closely to learning goals, success criteria, and the day-to-day decisions that shape teaching. It helps make student thinking visible, provides evidence of understanding, identifies misconceptions, and supports more responsive instruction. This understanding is also informed by Ontario’s <em>Growing Success</em> document, which emphasizes that assessment should be fair, transparent, equitable, and supportive of student learning. That perspective is important to me because it reinforces that assessment is not simply about producing marks, but about using evidence in purposeful ways to support growth, communicate achievement clearly, and help students understand what quality learning looks like.
+
+          One of the most important ideas that has shaped my thinking is the distinction between assessment as learning, assessment for learning, and assessment of learning. I see <strong>assessment as learning</strong> as especially important for helping students develop metacognition. When students are asked to reflect on what they understand, what they are still working on, and what strategies are helping them succeed, they become more aware of themselves as learners. This matters because students benefit from learning how to monitor their own progress, recognize areas of difficulty, and take greater ownership of next steps. In this sense, formative opportunities such as self-assessment, reflection, goal setting, and confidence checks are valuable not only because they generate information, but because they help students become more active and thoughtful participants in their own learning.
+
+          I understand <strong>assessment for learning</strong> as the ongoing use of evidence to inform teaching before learning is finalized. This is especially important in practice because it allows me to respond to students in the moment rather than waiting until the end of a unit to discover where difficulties emerged. Observations, conversations, exit tickets, class discussions, checkpoints, and diagnostic tasks can all help reveal what students understand, where confusion remains, and what adjustments may be needed in pacing, modelling, or support. For me, this is one of the most valuable functions of assessment because it directly informs my own instructional practice. It allows me to make more responsive decisions, refine lessons, and better match instruction to the needs of the students in front of me.
+
+          I understand <strong>assessment of learning</strong> as the evaluation of student achievement at a given point in time. This may include tests, performance tasks, projects, or other summative forms of assessment used to determine how well students have met expectations. While this type of assessment is important for reporting and communicating achievement, I do not see it as separate from the broader learning process. Its quality depends on strong alignment with curriculum expectations, learning goals, success criteria, and the instruction that came before it. When designed well, assessment of learning should provide a clear, fair, and meaningful picture of what students know and can do.
+
+          Overall, I see assessment as deeply connected to planning, instruction, student reflection, and professional judgment. Effective assessment is not only about measuring learning. It is about supporting learning, improving teaching, and helping students develop a clearer understanding of themselves as learners. That is why I value assessment practices that are ongoing, intentional, and rooted in evidence, reflection, and responsiveness.
+
+          <div style="clear: both;"></div>
+        </div>
+
+        <div class="sample-box" style="margin-top: 1.25rem;">
+          <h3>Assessment Example: Human Scatter Plot</h3>
+
+          One assessment example that has shaped my thinking is the human scatter plot, which I used in my coursework and also connected to my teachable area in physics. I value this activity because it makes student thinking visible in an active and low-pressure way while also giving me immediate insight into student confidence, understanding, and possible misconceptions.
+
+          In my Physics Curriculum and Instruction course, I ran this activity by first giving students a short review of the concept, then providing each student with a question. I set up the classroom as a physical graph and asked students to place themselves on the graph according to the answer they selected and their comfort level with that answer. In this way, students were not only choosing a response, but also showing how confident they felt in their thinking.
+
+          This activity is valuable because it allows assessment to happen through movement, discussion, and visible patterns in student responses. It gives students an opportunity to reflect on their own thinking while also allowing me to quickly identify trends, uncertainty, and areas that may need clarification before moving forward with instruction.
+        </div>
+
+        <div class="category-grid">
+          <div class="sample-box">
+            <h3>Assessment Slideshow</h3>
+            <p>
+              This slideshow highlights my thinking about assessment and how assessment can be used to support student learning, instructional decision-making, and reflection.
+            </p>
+
+            <iframe
+              src="FACT microteaching Jett Dobson.pdf"
+              title="Assessment Slideshow"
+              style="width: 100%; height: 360px; border: 1px solid #d9e4ef; border-radius: 10px; margin-top: 1rem; background: white;"></iframe>
+
+            <div style="margin-top: 1rem;">
+              <a href="FACT microteaching Jett Dobson.pdf" target="_blank" style="display: inline-block; text-decoration: none; background-color: #1f4e79; color: white; padding: 0.7rem 1rem; border-radius: 8px; font-weight: 600;">Open Full PDF</a>
+            </div>
+          </div>
+
+          <div class="sample-box">
+            <h3>Outline and Reflection PDF</h3>
+            <p>
+              This document includes my more detailed outline and a reflection connected to this assessment and how it informs my practice.
+            </p>
+
+            <iframe
+              src="Dobson FACT microteaching.pdf"
+              title="Assessment Outline and Reflection PDF"
+              style="width: 100%; height: 360px; border: 1px solid #d9e4ef; border-radius: 10px; margin-top: 1rem; background: white;">
+            </iframe>
+
+            <div style="margin-top: 1rem;">
+              <a href="Dobson FACT microteaching.pdf" target="_blank" style="display: inline-block; text-decoration: none; background-color: #1f4e79; color: white; padding: 0.7rem 1rem; border-radius: 8px; font-weight: 600;">Open Full PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="sample-box" style="margin-top: 1.25rem;">
+          <h3>Written Reflection</h3>
+
+          The Human Scatterplot activity was one of my first meaningful opportunities to explore formative assessment in a classroom-focused setting. Although I first taught it to fellow teacher candidates in my Physics curriculum and instruction course, it still gave me valuable insight into how a formative assessment strategy can work in practice. By having students show both their answer and their level of confidence through movement and positioning, the activity made student thinking visible in a way that was active, engaging, and low pressure.
+
+          What stood out to me most was how effectively this strategy can gather rich evidence of learning while still feeling accessible and enjoyable for students. Because students physically place themselves on a line or graph, the activity encourages participation, adds movement, and creates a simple entry point for all learners. At the same time, it allows the teacher to quickly notice patterns in understanding, confidence, and possible misconceptions. This helped me see more clearly how formative assessment can support both assessment for learning and assessment as learning, since it provides useful evidence to guide instruction while also encouraging students to reflect on their own understanding.
+
+          This strategy became even more meaningful to me because I later used a version of it during my practicum with Grade 6/7 students. In that setting, I had all students respond to the same question and place themselves along a line based on their thinking. It worked well because it was low floor, movement-based, and engaging for younger learners, while also allowing me to quickly make note of how comfortable students were with the content. I found that it created a fun and supportive way to collect evidence of learning without making assessment feel difficult or intimidating. Overall, this experience strengthened my understanding that assessment can be both purposeful and engaging, and that some of the most useful evidence comes from strategies that make student thinking visible.
+        </div>
+
+        <div class="category-grid" style="margin-top: 1.25rem;">
+          <div class="sample-box">
+            <h3>Assessment for Learning Example: Exit Ticket</h3>
+            <p>
+              This example shows an exit ticket used to gather quick evidence of student understanding at the end of a lesson. Exit tickets can help identify misconceptions, highlight areas that may need consolidation, and inform next instructional steps.
+            </p>
+
+            <iframe
+              src="3-2-1 (consolidation) JD.pdf"
+              title="Exit Ticket Example"
+              style="width: 100%; height: 360px; border: 1px solid #d9e4ef; border-radius: 10px; margin-top: 1rem; background: white;">
+            </iframe>
+
+            <div style="margin-top: 1rem;">
+              <a href="3-2-1 (consolidation) JD.pdf" target="_blank" style="display: inline-block; text-decoration: none; background-color: #1f4e79; color: white; padding: 0.7rem 1rem; border-radius: 8px; font-weight: 600;">Open Full PDF</a>
+            </div>
+          </div>
+
+          <div class="sample-box">
+            <h3>Reflection on the Exit Ticket Example</h3>
+            <p>
+              This reflection from one of my courses discusses how the exit ticket functioned as assessment for learning, what kind of information it provided, and how that evidence could inform future planning, pacing, or review.
+            </p>
+
+            <iframe
+              src="EDUC 4355 Short Essay Jett Dobson  GC (1).pdf"
+              title="Exit Ticket Reflection"
+              style="width: 100%; height: 360px; border: 1px solid #d9e4ef; border-radius: 10px; margin-top: 1rem; background: white;">
+            </iframe>
+
+            <div style="margin-top: 1rem;">
+              <a href="EDUC 4355 Short Essay Jett Dobson  GC (1).pdf" target="_blank" style="display: inline-block; text-decoration: none; background-color: #1f4e79; color: white; padding: 0.7rem 1rem; border-radius: 8px; font-weight: 600;">Open Full PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="category-grid" style="margin-top: 1.25rem;">
+          <div class="sample-box">
+            <h3>Assessment of Learning Example: Rubric Assignment</h3>
+            <p>
+              This example shows a rubric assignment connected to assessment of learning. It represents a more summative form of assessment used to evaluate student achievement in relation to specific criteria and expectations.
+            </p>
+
+            <iframe
+              src="Rubric Project EDUC CI Phys.pdf"
+              title="Rubric Assignment Example"
+              style="width: 100%; height: 360px; border: 1px solid #d9e4ef; border-radius: 10px; margin-top: 1rem; background: white;">
+            </iframe>
+
+            <div style="margin-top: 1rem;">
+              <a href="Rubric Project EDUC CI Phys.pdf" target="_blank" style="display: inline-block; text-decoration: none; background-color: #1f4e79; color: white; padding: 0.7rem 1rem; border-radius: 8px; font-weight: 600;">Open Full PDF</a>
+            </div>
+          </div>
+
+          <div class="sample-box">
+            <h3>Tracking Sheet Example</h3>
+            <p>
+              This example shows a tracking sheet created to organize observations, monitor student progress, and document evidence of learning during instruction. It reflects how assessment information can be gathered and organized in practical ways to support teaching.
+            </p>
+
+            <iframe
+              src="inquiry_learning_skills_tracking_sheet_4pages.pdf"
+              title="Tracking Sheet Example"
+              style="width: 100%; height: 360px; border: 1px solid #d9e4ef; border-radius: 10px; margin-top: 1rem; background: white;">
+            </iframe>
+
+            <div style="margin-top: 1rem;">
+              <a href="inquiry_learning_skills_tracking_sheet_4pages.pdf" target="_blank" style="display: inline-block; text-decoration: none; background-color: #1f4e79; color: white; padding: 0.7rem 1rem; border-radius: 8px; font-weight: 600;">Open Full PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="sample-box" style="margin-top: 1.25rem;">
+          <h3>Examples of Assessment in My Practice and What I Learned</h3>
+          <p>
+            Assessment is an area of my practice that I have started to understand in a much more connected and purposeful way. Rather than seeing it only as something used to assign marks, I now see it as an ongoing part of teaching that helps make student thinking visible, guides instructional decisions, and creates greater clarity for both students and teacher. The examples included here reflect that growing understanding from different angles. The 3-2-1 exit ticket shows how even a simple formative tool can provide meaningful evidence of what students understood, what they are still unsure about, and what may need to be revisited. It has helped me recognize that assessment for learning does not need to be complicated in order to be useful. Often, a brief and well-designed task can reveal important patterns in student thinking while also giving students a chance to reflect on their own learning. My understanding of assessment has also grown through the process of co-creating a rubric with a classmate in one of my courses. That experience pushed me to think more carefully about what makes assessment criteria fair, clear, and genuinely helpful for students. It made me consider how important student-friendly language is in helping students understand expectations, and how strong rubric design requires more than simply listing criteria. It involves thinking carefully about what quality looks like, how levels of performance are distinguished, and how to make evaluation as transparent and consistent as possible. The tracking sheet adds another dimension to this learning by showing how assessment can also happen during a lesson through observation and note-taking. I value this because it allows me to gather evidence of participation, understanding, and progress in the moment rather than relying only on memory afterward. Taken together, these experiences have helped me see assessment as something that should be built into learning from beginning to end. They have strengthened my understanding that effective assessment is not only about evaluation, but also about responsiveness, clarity, and using evidence in ways that better support student learning.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Inquiry-Based Learning</h2>
+      <p class="section-intro">
+        This section highlights how I use inquiry-based learning to support meaningful, student-centred learning across both of my teachable areas. I see inquiry as valuable because it asks students to investigate questions, analyze information, justify decisions, and communicate their thinking rather than only follow a fixed procedure. The examples included here reflect my growing understanding of how inquiry-based learning can deepen engagement, strengthen reasoning, and support scientific literacy by helping students interpret evidence, think critically, and make sense of ideas through investigation. Several of these examples were developed through collaborative course-based work, which also strengthened my understanding of how shared planning can improve lesson quality, clarity, and responsiveness to student needs.
+      </p>
+      <button class="show-more-button" type="button" aria-expanded="false">Show More</button>
+      <div class="collapsible-content">
+        <div class="artifact-showcase">
+          <div class="artifact-header-box">
+            <h3>Understanding and Value of Inquiry-Based, Problem-Based, and Project-Based Learning</h3>
+
+            <div style="float: right; width: 450px; max-width: 42%; margin: 0 0 1rem 1.25rem;">
+              <figure style="margin: 0;">
+                <img
+                  src="IBL VD Tport.png"
+                  alt="Visual representing inquiry-based, problem-based, or project-based learning"
+                  style="width: 100%; height: auto; display: block; border: 1px solid #d9e4ef; border-radius: 10px; background: white;">
+                <figcaption style="margin-top: 0.55rem; font-size: 0.9rem; line-height: 1.45; color: #44596d;">
+                  Figure 1. Venn diagram comparing inquiry-based, problem-based, and project-based learning.
+                  <a
+                    href="https://www.learningbyinquiry.com/what-the-heck-is-the-difference-between-ibl-and-pbl/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="color: #1f4e79; text-decoration: none; font-weight: 600;">
+                    Source
+                  </a>
+                </figcaption>
+              </figure>
+            </div>
+              Inquiry-based, problem-based, and project-based learning are closely related approaches that position students as active participants in the learning process rather than passive recipients of information. Across all three, students are asked to question, investigate, interpret information, apply knowledge, and communicate their thinking in purposeful ways. What makes these approaches especially valuable is that they move learning beyond the simple completion of fixed steps and instead encourage students to think critically, make decisions, justify conclusions, and build understanding through evidence, discussion, and reflection. A Venn diagram depicting the relationship among inquiry-based, problem-based, and project-based learning can be seen in Figure 1.
+
+              At the same time, these approaches are not identical, and understanding their distinctions is important for thoughtful instructional planning. Inquiry-based learning is often driven by questions, exploration, and investigation, with an emphasis on helping students develop understanding through observation, reasoning, and evidence. Problem-based learning places students in a meaningful challenge or situation that requires analysis, decision-making, and justification as students work toward a response or solution. Project-based learning often extends over a longer period of time and typically asks students to create, design, or produce something that demonstrates their understanding in an applied and authentic way. Although each approach has a different emphasis, all three can make learning more active, meaningful, and connected to real contexts.
+
+              I value these approaches because they can strengthen engagement while also supporting deeper thinking and scientific literacy. They give students opportunities to interpret evidence, ask thoughtful questions, analyze information, justify their reasoning, and communicate ideas with greater clarity. In science especially, this is important because students need opportunities not only to learn scientific concepts, but also to think in ways that reflect scientific reasoning and evidence-based decision-making. In mathematics and broader STEM contexts, these approaches also support persistence, problem solving, collaboration, and the transfer of understanding across different situations.
+
+              This area has also contributed to my own professional growth because several of the examples in this section were developed collaboratively through coursework. As someone still early in my development as an educator, opportunities to collaborate with others are especially valuable because they allow me to see different perspectives on planning, questioning, task design, and student support. Engaging with those perspectives helps me think more carefully about my own choices and strengthens my ability to design learning experiences that are clearer, more purposeful, and more responsive to student needs. It has also helped me better understand that strong inquiry-, problem-, and project-based learning do not simply happen because a task is open-ended. They require careful planning, thoughtful structure, and purposeful guidance so that students are supported in investigating ideas, thinking deeply, and making meaningful sense of their learning.
+            
+
+            <div style="clear: both;"></div>
+          </div>
+        </div>
+
+        <div class="artifact-showcase">
+          <div class="artifact-header-box">
+            <h3>Problem-Based Learning Example: Mathematics</h3>
+            <p>
+              This learning and evaluation task pair comes from a collaborative assignment completed in my mathematics curriculum and instruction course. The task involved designing a problem-based learning package that included assessment and evaluation components. My partner and I chose to focus on decolonizing the curriculum as the central theme. We designed the task so that students could explore a topic of their choice and then communicate their learning through a presentation method of their choice. The package also included supports to help students organize ideas, build understanding, and prepare for the final communication task. I included the full package, supporting data, and sample materials to show both the planning and assessment considerations behind the task.
+            </p>
+          </div>
+
+          <div class="pdf-grid">
+            <div class="pdf-card">
+              <h4>1. Full Package</h4>
+
+              <iframe
+                id="math-full-viewer"
+                src="Culminating Assignment - Anthony Mitchell and Jett Dobson Math.pdf"
+                title="Problem-Based Learning Full Package"
+                class="pdf-frame">
+              </iframe>
+
+              <div class="pdf-controls">
+                <div class="pdf-open-wrap">
+                  <a
+                    id="math-full-open"
+                    href="Culminating Assignment - Anthony Mitchell and Jett Dobson Math.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="pdf-open-button">
+                    Open Full PDF
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="pdf-card">
+              <h4>2. Data Options</h4>
+
+              <iframe
+                id="math-data-viewer"
+                src="Learning and Eval Task Datasets Blanding Turtle (OpenAI, 2026).pdf"
+                title="Problem-Based Learning Data Options"
+                class="pdf-frame">
+              </iframe>
+
+              <div class="pdf-controls">
+                <div class="pdf-switch-row">
+                  <button
+                    type="button"
+                    class="pdf-switch-button active"
+                    onclick="switchPdf(this, 'math-data-viewer', 'math-data-open', 'Learning and Eval Task Datasets Blanding Turtle (OpenAI, 2026).pdf')">
+                    Blanding’s Turtle
+                  </button>
+
+                  <button
+                    type="button"
+                    class="pdf-switch-button"
+                    onclick="switchPdf(this, 'math-data-viewer', 'math-data-open', 'Learning and Eval Task Datasets Emerald Ash Borer (OpenAI, 2026).pdf')">
+                    Emerald Ash Borer
+                  </button>
+                </div>
+
+                <div class="pdf-open-wrap">
+                  <a
+                    id="math-data-open"
+                    href="Learning and Eval Task Datasets Blanding Turtle (OpenAI, 2026).pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="pdf-open-button">
+                    Open Full PDF
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="pdf-card">
+              <h4>3. Example Projects</h4>
+
+              <iframe
+                id="math-example-viewer"
+                src="Blanding Turtle Example.pdf"
+                title="Problem-Based Learning Example Projects"
+                class="pdf-frame">
+              </iframe>
+
+              <div class="pdf-controls">
+                <div class="pdf-switch-row">
+                  <button
+                    type="button"
+                    class="pdf-switch-button active"
+                    onclick="switchPdf(this, 'math-example-viewer', 'math-example-open', 'Blanding Turtle Example.pdf')">
+                    Blanding’s Turtle
+                  </button>
+
+                  <button
+                    type="button"
+                    class="pdf-switch-button"
+                    onclick="switchPdf(this, 'math-example-viewer', 'math-example-open', 'Emerald Ash Borer Example.pdf')">
+                    Emerald Ash Borer
+                  </button>
+                </div>
+
+                <div class="pdf-open-wrap">
+                  <a
+                    id="math-example-open"
+                    href="Blanding Turtle Example.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="pdf-open-button">
+                    Open Full PDF
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="note-box artifact-reflection">
+            <h3>Reflection on Problem-Based Learning</h3>
+            <p>
+              This was a valuable experience because it gave me the opportunity to try something new in mathematics. It pushed me to think beyond more traditional problem sets and consider how mathematics tasks can also support communication, choice, and deeper meaning. Choosing decolonizing the curriculum as our focus encouraged me to think more carefully about relevance, perspective, and how students can connect mathematical learning to broader ideas and contexts. That made the task feel more purposeful than simply designing an activity to cover expectations.
+
+              One of the most important parts of this work was thinking about communication in mathematics. We wanted students not only to work through ideas, but also to explain them clearly and present them in a way that others could understand. Having students create a poster added a strong communication component and reminded me that mathematical understanding is not only shown through calculations. It can also be demonstrated through explanation, organization, representation, and the ability to communicate reasoning clearly.
+
+              This project also helped deepen my understanding of scaffolding and differentiation. We were intentional in designing the first part of the task to provide structure and guidance for students before they moved into the presentation component. In that sense, the earlier stage of the task acted as support for the second stage by helping students gather, sort, and organize information before being asked to communicate it more independently. I found this valuable because it showed me how task design can support student success without reducing the complexity of the learning.
+
+              Allowing students to choose their topic was another important decision. Including choice made the task more flexible and created space for students to connect with the learning in different ways. It also reinforced for me that engagement often improves when students have some ownership over the direction of their work. Overall, this experience helped me think more carefully about how problem-based learning can support communication, student choice, and structured independence. It also strengthened my understanding that thoughtful task design can make mathematics learning more accessible, purposeful, and meaningful.
+            </p>
+          </div>
+        </div>
+
+        <div class="artifact-showcase">
+          <div class="artifact-header-box">
+            <h3>Inquiry-Based Learning Example: Physics</h3>
+            <p>
+              This lesson was created for my Physics Curriculum and Instruction course.
+              We designed one inquiry-based task for Grade 12 College Physics and Grade 11 University Physics.
+              Using a shared topic, we built a lesson that students could investigate through testing, redesign, and explanation.
+              Rather than follow one fixed procedure, students gather evidence, notice patterns, interpret results, and communicate conclusions.
+              This process strengthened my understanding of inquiry design and the value of rich assessment in physics.
+            </p>
+          </div>
+
+          <div class="pdf-grid">
+            <div class="pdf-card">
+              <h4>1. Full Package</h4>
+
+              <iframe
+                id="ibl-full-viewer"
+                src="EDUC 4201_4224_ IBL Task ZA & JD.pdf"
+                title="Inquiry-Based Learning Full Package"
+                class="pdf-frame">
+              </iframe>
+
+              <div class="pdf-controls">
+                <div class="pdf-open-wrap">
+                  <a
+                    id="ibl-full-open"
+                    href="EDUC 4201_4224_ IBL Task ZA & JD.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="pdf-open-button">
+                    Open Full PDF
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="pdf-card">
+              <h4>2. Lesson Plans</h4>
+
+              <iframe
+                id="ibl-lesson-viewer"
+                src="IBL Lesson Plans.pdf"
+                title="Inquiry-Based Learning Lesson Plans"
+                class="pdf-frame">
+              </iframe>
+
+              <div class="pdf-controls">
+                <div class="pdf-open-wrap">
+                  <a
+                    id="ibl-lesson-open"
+                    href="IBL Lesson Plans.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="pdf-open-button">
+                    Open Full PDF
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="pdf-card">
+              <h4>3. Student Handouts</h4>
+
+              <iframe
+                id="ibl-handout-viewer"
+                src="SPH3U Student Handout.pdf"
+                title="Inquiry-Based Learning Student Handouts"
+                class="pdf-frame">
+              </iframe>
+
+              <div class="pdf-controls">
+                <div class="pdf-switch-row">
+                  <button
+                    type="button"
+                    class="pdf-switch-button active"
+                    onclick="switchPdf(this, 'ibl-handout-viewer', 'ibl-handout-open', 'SPH3U Student Handout.pdf')">
+                    SPH3U
+                  </button>
+
+                  <button
+                    type="button"
+                    class="pdf-switch-button"
+                    onclick="switchPdf(this, 'ibl-handout-viewer', 'ibl-handout-open', 'SPH4C Student Handout.pdf')">
+                    SPH4C
+                  </button>
+                </div>
+
+                <div class="pdf-open-wrap">
+                  <a
+                    id="ibl-handout-open"
+                    href="SPH3U Student Handout.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="pdf-open-button">
+                    Open Full PDF
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="note-box artifact-reflection">
+            <h3>Reflection on Inquiry-Based Learning</h3>
+            <p>
+              This inquiry-based learning example reflects my interest in creating physics lessons where students investigate, test ideas, interpret evidence, and explain their thinking rather than only follow a predetermined procedure. Inquiry is valuable to me because it encourages students to become more active participants in the learning process and helps make scientific thinking more visible.
+            
+              One of the strengths of this lesson is that it gives students opportunities to explore, observe patterns, and refine their thinking through evidence-based reasoning. It also shows that inquiry does not mean a lack of structure. Students still need clear expectations, purposeful task design, and support in making sense of what they observe.
+            
+              This example also reinforced the importance of responsiveness and flexibility. Different learners may engage with inquiry in different ways, so supporting access through clear handouts, thoughtful planning, and adaptable structures is an important part of making inquiry effective. Through this work, I continued to develop my understanding that inquiry is strongest when it is both open enough to allow investigation and structured enough to support meaningful learning.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Differentiation and Inclusive Practice</h2>
+      <p class="section-intro">
+        This section highlights how I work to create learning environments that are accessible, responsive, and inclusive. In my practice, differentiation is not about creating entirely separate classrooms within one room. It is about planning with learner variability in mind from the beginning so that more students can participate meaningfully in the same learning experience. I see inclusive practice as closely connected to lesson design, classroom environment, assessment, and the everyday decisions a teacher makes to support student access, confidence, and belonging.
+      </p>
+      <button class="show-more-button" type="button" aria-expanded="false">Show More</button>
+
+      <div class="collapsible-content">
+        <div class="category-grid" style="grid-template-columns: 1fr;">
+          <div class="category-card">
+            <h3>How I Understand Differentiation and Inclusive Practice</h3>
+            <p>
+              I understand differentiation and inclusive practice as closely connected parts of effective teaching. Differentiation means planning intentionally for the range of learners in a classroom rather than waiting to respond only after students are already experiencing difficulty. This includes thinking about readiness, pace, background knowledge, confidence, learning preferences, and the different ways students may access and demonstrate understanding.
+            
+              In my practice, differentiation can include varied entry points, scaffolded instructions, flexible grouping, visual supports, choice in how students engage with a task, and opportunities for extension. I want students to be able to enter learning with confidence while still being challenged appropriately.
+            
+              Inclusive practice means designing learning environments where students feel respected, supported, and able to participate meaningfully. This includes considering IEP accommodations, accessibility needs, classroom routines, relationship-building, and the representation of different learner needs within planning. I want students to see the classroom as a place where support is normal, multiple approaches are valued, and learning is not limited to one format. Inclusion is strengthened when teaching is flexible, expectations are clear, and students are given the tools they need to access the same big ideas in different ways.
+            </p>
+          </div>
+        </div>
+
+        <div class="sample-layout" style="grid-template-columns: 1fr 1fr; align-items: stretch; margin-top: 1.25rem;">
+          <div class="sample-box" style="display: flex; flex-direction: column;">
+            <h3>Lesson Plan Example with IEP and Accommodation Planning</h3>
+
+            <iframe
+              src="EDUC 4355_ Lesson Plan Assignment Jett Dobson GC.pdf"
+              title="Lesson Plan Example with IEP and Accommodation Planning"
+              style="width: 100%; height: 420px; border: 1px solid #d9e4ef; border-radius: 10px; margin-top: 1rem; background: white;">
+            </iframe>
+          </div>
+
+          <div class="annotation-box" style="display: flex; flex-direction: column;">
+            <h3>Lesson Plan Overview</h3>
+            <p>
+              This lesson plan from my Effective Intermediate Teaching course shows how I planned with accommodations and inclusion in mind before instruction began.
+            
+              The lesson plan includes the learning goal, success criteria, lesson flow, and specific supports intended to help a range of learners participate meaningfully in the same learning experience.
+            
+              Including this lesson plan in this section helps show that differentiation is part of the planning process itself rather than something added only after students begin to struggle. It also reflects my developing ability to think intentionally about IEP considerations, accessibility, and flexible classroom supports at the planning stage.
+            </p>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top: 1rem;">
+          <h3>Reflection on Planning for Inclusion</h3>
+          <p>
+            This lesson plan helped me think more carefully about what it means to plan for inclusion from the beginning rather than treating support as an afterthought. Through this work, I became more aware that strong planning involves anticipating where students may need scaffolds, clarifying how all learners can access the task, and making sure the lesson structure supports participation as well as content understanding.
+          
+            One of the most important things I learned through this process was that planning with IEPs and learner needs in mind can strengthen the lesson for the whole class, not only for students with formal accommodations. It pushed me to think more intentionally about accessibility, clarity, and how supports can be built directly into instruction.
+          
+            Overall, this artifact reflects my growing understanding that inclusive practice begins with thoughtful planning and that flexibility, structure, and responsiveness are all important parts of helping students feel capable and supported in their learning.
+          </p>
+        </div>
+
+        <div class="note-box" style="margin-top: 1.5rem;">
+          <h3>Classroom Management Lesson with Differentiation and Student Support</h3>
+          <p>
+            This second example comes from my classroom management coursework and focuses on how planning can support a range of learners through intentional accommodations, student-specific considerations, and classroom structures designed to support participation and success.
+          
+            In this example, I wanted to think not only about lesson delivery, but also about how materials, classroom supports, and tracking tools can help make the lesson more organized, accessible, and responsive to different student needs.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem; align-items: stretch;">
+          <div class="sample-box" style="display: flex; flex-direction: column; height: 100%;">
+            <h3>Lesson Plan</h3>
+
+            <iframe
+              src="Lesson plan EDUC 4350_ Demonstration of Learning B LP Jett Dobson.pdf"
+              title="Lesson Plan"
+              style="width: 100%; height: 420px; border: 1px solid #d9e4ef; border-radius: 10px; margin-top: 1rem; background: white;">
+            </iframe>
+          </div>
+
+          <div class="sample-box" style="display: flex; flex-direction: column; height: 100%;">
+            <h3>Lesson Slideshow</h3>
+
+            <iframe
+              src="Demo_learning_partB_slides.pdf"
+              title="Lesson Slideshow"
+              style="width: 100%; height: 420px; border: 1px solid #d9e4ef; border-radius: 10px; margin-top: 1rem; background: white;">
+            </iframe>
+          </div>
+
+          <div class="sample-box" style="display: flex; flex-direction: column; height: 100%;">
+            <h3>Lesson Resources</h3>
+
+            <iframe
+              src="motion_graphs_teacher_packet_merged.pdf"
+              title="Lesson Resources"
+              style="width: 100%; height: 420px; border: 1px solid #d9e4ef; border-radius: 10px; margin-top: 1rem; background: white;">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top: 1rem;">
+          <h3>Reflection on the Classroom Management Lesson Example</h3>
+          <p>
+            Add your reflection here on how this lesson plan and its supporting resources reflect differentiated and inclusive practice. You could discuss how the lesson was structured to support multiple learners, how the accompanying materials helped organize support, and what this example taught you about planning with greater responsiveness and intentionality.
+          </p>
+        </div>
+
+        <div class="note-box" style="margin-top: 1.5rem;">
+          <h3>Student Supports and Inclusive Tools I Can Use in Mathematics and Physics</h3>
+          <p>
+            Beyond full lesson plans, inclusive practice is also reflected in the day-to-day supports, representations, and structures that help students access learning more successfully. In mathematics and physics especially, these supports can reduce unnecessary barriers by making abstract ideas more visible, organizing complex tasks into manageable steps, and giving students more than one way to engage with important concepts.
+          
+            The materials below represent the kinds of supports I can incorporate directly into my teaching. Some are concrete and hands-on, such as manipulatives and sorting activities, while others are organizational or communication-based supports that help students process, discuss, and demonstrate their understanding more clearly.
+          </p>
+        </div>
+
+        <div class="resource-grid" style="margin-top: 1rem;">
+          <div class="resource-card">
+            <h3>Mathematics Manipulatives and Concrete Models</h3>
+            <p>
+              In mathematics, manipulatives can help students move from concrete understanding toward more abstract reasoning. Useful examples include algebra tiles for representing expressions and factoring, fraction strips or tiles for comparing and combining fractions, integer chips for adding and subtracting integers, pattern blocks for geometry, linking cubes for measurement and proportional reasoning, and graphing cards for matching equations, tables, and visual models.
+            </p>
+            <div class="artifact-placeholder" style="min-height: 210px;">
+              Add algebra tiles, fraction strips, graphing cards, or other manipulatives here
+            </div>
+          </div>
+
+          <div class="resource-card">
+            <h3>Physics Models and Hands-On Supports</h3>
+            <p>
+              In physics, hands-on supports can make difficult concepts more visible and easier to discuss. These can include motion graph matching cards, force arrow cut-outs for free-body diagrams, circuit kits, spring scales, ramps and carts, vector cards, and simple demonstration materials that let students predict, observe, and explain before formalizing the concept mathematically.
+            </p>
+            <div class="artifact-placeholder" style="min-height: 210px;">
+              Add force diagram supports, motion graph cards, circuit kit images, or physics models here
+            </div>
+          </div>
+
+          <div class="resource-card">
+            <h3>Visual Supports and Worked Examples</h3>
+            <p>
+              Visual supports help students process information more clearly and reduce cognitive overload. In my math and physics teaching, these could include anchor charts, labelled diagrams, step-by-step worked examples, formula breakdown sheets, graph-reading guides, and comparison visuals that show common errors alongside correct reasoning.
+            </p>
+            <div class="artifact-placeholder" style="min-height: 210px;">
+              Add anchor chart, worked example sheet, or visual organizer here
+            </div>
+          </div>
+
+          <div class="resource-card">
+            <h3>Guided Notes and Structured Handouts</h3>
+            <p>
+              Guided notes and scaffolded handouts can support students who need more structure while still keeping all learners engaged with the same key ideas. These might include partially completed notes, fill-in-the-blank summaries, structured lab sheets, problem-solving templates, or handouts that break a larger task into clear sections.
+            </p>
+            <div class="artifact-placeholder" style="min-height: 210px;">
+              Add guided notes, scaffolded handout, or lab template here
+            </div>
+          </div>
+
+          <div class="resource-card">
+            <h3>Multiple Entry Points and Tiered Tasks</h3>
+            <p>
+              Low floor, high ceiling tasks and tiered question sets can help more students enter the learning with confidence while still leaving room for depth and extension. In practice, this could mean starting with a concrete example, building toward symbolic reasoning, and then offering extension questions for students ready to move further.
+            </p>
+            <div class="artifact-placeholder" style="min-height: 210px;">
+              Add tiered task, choice structure, or multiple-entry-point activity here
+            </div>
+          </div>
+
+          <div class="resource-card">
+            <h3>Communication, Vocabulary, and Organization Supports</h3>
+            <p>
+              Some students benefit most from supports that help them explain thinking and stay organized during a lesson. These can include vocabulary banks, sentence starters, explanation frames, checklists, task trackers, chunked instructions, and self-monitoring sheets that help students manage the lesson while also participating more confidently in discussion and written work.
+            </p>
+            <div class="artifact-placeholder" style="min-height: 210px;">
+              Add vocabulary support, sentence stems, checklist, or tracking tool here
+            </div>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top: 1rem;">
+          <h3>Reflection</h3>
+          <p>
+            I am still learning as an educator for the different resources I can use and the students can use to show their learning and understanding through different ways. By including inclusive learning practices I can ensure that every student has the opportunity to participate in teh curriculum and get the most of their education. Different students learn differently so it is importnat to recognize this now for the students now for this.  
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section">
+    <h2>Collaborative Learning</h2>
+    <p class="section-intro">
+      This section highlights my growing understanding of collaborative learning and how structured collaboration can support student engagement, discussion, reasoning, and shared meaning-making. It includes a literature-based summary connected to collaborative learning as a pedagogy, followed by a P.E.O.E. activity example that reflects how collaborative learning can be built into classroom practice through prediction, discussion, observation, and explanation.
+    </p>
+    <button class="show-more-button" type="button" aria-expanded="false">Show More</button>
+    <div class="collapsible-content">
+      <div class="category-grid" style="grid-template-columns: 1fr;">
+        <div class="category-card">
+          <h3>Understanding the Value of Collaborative Learning</h3>
+
+          <div style="float: left; width: 360px; max-width: 45%; margin: 0 1.25rem 0.75rem 0;">
+            <iframe
+              src="Assignment 4_ Article Synopsis Jett Dobson GC.pdf"
+              title="Collaborative Learning Article Synopsis"
+              style="width: 100%; height: 420px; border: 1px solid #d9e4ef; border-radius: 10px; background: white;">
+            </iframe>
+          </div>
+
+          <p>
+            This paper from my Physics Curriculum and Instruction course reflects a literature-based synopsis I completed to deepen my understanding of collaborative learning as a purposeful instructional approach rather than simply placing students in groups. In the article, the strategy of peer discussion combined with isomorphic problems was used to support Grade 11 students’ learning in kinematics and Newton’s Laws, with particular attention to conceptual understanding and graph interpretation. The study showed that students in the peer discussion group demonstrated stronger gains than those in the traditional instruction group, suggesting that structured discussion can help students move beyond formula use toward a deeper understanding of physics concepts.
+          
+            One of the most important ideas I took from this work is that collaborative learning becomes valuable when students are required to explain, justify, question, and revise their thinking with others. In physics especially, this matters because students can often complete calculations without fully understanding the concepts behind them. Peer discussion helps interrupt that pattern by making students commit to an answer, hear alternative reasoning, and think through why an idea does or does not make sense. I also think this is powerful because students are often able to understand the language and explanations of their peers in ways that feel more accessible than teacher explanations alone. When students explain concepts to one another, they often use simpler wording, shared points of confusion, and examples that make the learning feel more immediate and understandable.
+          
+            This work also helped me think more carefully about the conditions that make collaboration meaningful. Productive collaborative learning requires structure, thoughtful grouping, purposeful task design, and teacher guidance. Without that structure, group work can easily become uneven or superficial. With it, collaborative learning can support both academic growth and the development of communication, listening, and shared problem-solving skills that are important across subject areas.
+          
+            This synopsis also strengthened my understanding that collaborative learning needs to be structured carefully in order to be meaningful. The article highlighted that productive collaboration does not happen automatically. It depends on thoughtful task design, clear expectations, and teacher guidance so that discussion remains focused on reasoning rather than just sharing answers. This is something I try to carry into my own practice. In most of the lessons I create, I aim to incorporate a collaborative element somewhere in the learning process, whether through partner discussion, small-group problem solving, or shared reflection, and this can be seen throughout the lesson plans included in my portfolio. More broadly, this artifact reinforced my belief that collaborative learning is an important part of effective teaching because it helps students build conceptual understanding, develop communication skills, and become more active participants in their own learning.
+          </p>
+
+          <div style="clear: both;"></div>
+        </div>
+      </div>
+
+      <div class="sample-box" style="margin-top: 1.25rem;">
+        <h3>Group Formation and Conditions for Effective Collaboration</h3>
+
+        <div style="float: right; width: 450px; max-width: 45%; margin: 0 0 0.75rem 1.25rem;">
+          <img
+            src="Group slide math example image.png"
+            alt="Math Centres"
+            style="width: 100%; height: auto; display: block; border: 1px solid #d9e4ef; border-radius: 10px; margin-top: 1rem; background: white;">
+          
+        </div>
+
+        <p>
+          This example reflects an important practical consideration in my approach to collaborative learning: meaningful collaboration depends not only on the quality of the task, but also on how groups are formed and supported. Through my practicum experience, I became more aware that grouping students is never a neutral decision. The way students are paired or placed together can strongly influence their confidence, level of participation, and overall success within a collaborative task. As a result, I have come to see group formation as an important part of instructional planning rather than something that should be decided casually in the moment.
+
+          Because of this, I often prefer to create groups intentionally rather than relying only on random grouping. While random grouping can sometimes be useful, it can also create situations in which certain students feel left out, uncomfortable, or less able to participate fully. In some cases, it may unintentionally isolate a student socially or place them in a group dynamic that makes collaboration more difficult. Being intentional with grouping allows me to think carefully about how students work together, how they communicate, and what type of environment will best support respectful and productive learning. It also helps me ensure that no student is overlooked or placed at a disadvantage as a result of how the groups are formed.
+
+          My practicum also helped me recognize that there are times when students should have some voice in grouping decisions, particularly when this supports their learning in a meaningful way. One example that stood out to me involved a student who had difficulty with reading and often felt more comfortable working with a close friend who could help read instructions and scribe ideas during shared tasks. Pairing those students together created a more supportive entry point into the activity and allowed the student to participate with greater confidence. This experience reinforced for me that thoughtful grouping is not only about classroom management or productivity, but also about responsiveness, inclusion, and creating conditions in which students can access learning more successfully.
+
+          This has shaped the way I think about collaborative learning more broadly. Effective grouping requires me to consider a range of factors, including student confidence, relationships, communication styles, work habits, and support needs. It does not mean that students should always work with the same peers, nor does it mean that challenge and flexibility are unimportant. Rather, it means that grouping decisions should be made with purpose and adjusted when needed to reflect the realities of the classroom and the needs of the learners within it.
+
+          Overall, this aspect of my practice has strengthened my understanding that collaborative learning works best when it is supported by thoughtful teacher decision-making. By planning groups intentionally, remaining responsive to student needs, and recognizing when student voice can play a role in that process, I can help build a classroom environment in which collaborative learning is more inclusive, productive, and genuinely beneficial.
+        </p>
+
+        <div style="clear: both;"></div>
+      </div>
+
+      <div class="sample-box" style="margin-top: 1.25rem;">
+        <h3>P.E.O.E. Activity Example</h3>
+        <p>
+          This example shows how collaborative learning can be incorporated through a P.E.O.E. activity structure. In this kind of task, students are asked to predict, explain, observe, and then explain again after seeing the result. This supports discussion, reasoning, and conceptual understanding by asking students to make their thinking visible and revisit it in light of evidence.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem; align-items: stretch;">
+        <div class="sample-box" style="display: flex; flex-direction: column; height: 100%;">
+          <h3>P.E.O.E. Slideshow</h3>
+
+          <iframe
+            src="Physics Grade 12 PEOE Dobson.pdf"
+            title="P.E.O.E. Slideshow"
+            style="width: 100%; height: 420px; border: 1px solid #d9e4ef; border-radius: 10px; margin-top: 1rem; background: white;">
+          </iframe>
+        </div>
+
+        <div class="sample-box" style="display: flex; flex-direction: column; height: 100%;">
+          <h3>P.E.O.E. Activity Outline</h3>
+
+          <iframe
+            src="PEOE Outline A2.pdf"
+            title="P.E.O.E. Activity Outline"
+            style="width: 100%; height: 420px; border: 1px solid #d9e4ef; border-radius: 10px; margin-top: 1rem; background: white;">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="sample-box" style="margin-top: 1.25rem;">
+        <h3>Reflection on Collaborative Learning and P.E.O.E.</h3>
+        <p>
+          The Predict, Explain, Observe, Explain activity helped deepen my understanding of how collaborative learning can support student thinking in a meaningful way. In this activity, students worked in groups of three and used a whiteboard to record and discuss their ideas throughout the process. What I value about this structure is that it encourages students to make their thinking visible from the beginning, revisit it after observation, and then refine their understanding based on what they noticed. This creates a strong opportunity for learning because students are not simply trying to arrive at the correct answer. They are asked to explain their reasoning, listen to others, and reconsider their ideas as new evidence emerges.
+
+          One of the most important takeaways for me was how much meaningful discussion this kind of task can generate when it is structured well. Working in small groups gave students space to share different perspectives, question one another, and explain their thinking in ways that were active and collaborative. Using whiteboards also supported this process by making ideas easy to record, revise, and talk through together. Activities like this remind me that collaborative learning is most effective when students are working with one another to make sense of ideas rather than simply dividing up work. It allows them to encounter different ways of thinking, explain concepts in their own words, and build stronger understanding through discussion. More broadly, this activity reinforced for me that collaborative learning can be a powerful way to support engagement, reasoning, and deeper conceptual understanding when students are given a clear structure and a meaningful task to work through together.
+        </p>
+      </div>
+    </div>
+    </section>
+
+
+    <section class="section" id="math-lessons">
+      <h2>Math Lessons</h2>
+      <p class="section-intro">
+        This section includes mathematics lessons developed through both practicum experience and coursework. Together, these artifacts show how I approach lesson planning, instructional clarity, student reasoning, and the use of multiple representations in mathematics. Alongside each lesson plan, I include associated resources and a brief reflection to show how the lesson was designed, what it aimed to support in student learning, and what it contributed to my own professional growth.
+      </p>
+      <button class="show-more-button" type="button" aria-expanded="false">Show More</button>
+      <div class="collapsible-content">
+        <div class="lesson-entry-grid">
+          <div class="lesson-entry">
+            <h3>Lesson Title Placeholder</h3>
+            <div class="lesson-meta">
+              <span class="tag">Grade / Course</span>
+              <span class="tag">Math Strand</span>
+              <span class="tag">Lesson Plan</span>
+            </div>
+            <p>
+              Add a short summary of the lesson focus here. For example, identify the big idea, task, or skill students were developing.
+            </p>
+            <div class="artifact-placeholder">Add math lesson artifact or link here</div>
+            <div class="lesson-reflection">
+              <h4>Reflection</h4>
+              <p>
+                Briefly explain what worked well, what students found challenging, and what this lesson taught you about planning or teaching mathematics.
+              </p>
+            </div>
+          </div>
+
+          <div class="lesson-entry">
+            <h3>Lesson Title Placeholder</h3>
+            <div class="lesson-meta">
+              <span class="tag">Grade / Course</span>
+              <span class="tag">Problem Solving</span>
+              <span class="tag">Slides or Handout</span>
+            </div>
+            <p>
+              Add another lesson here that shows a different aspect of your practice, such as inquiry, collaboration, visual representation, or assessment.
+            </p>
+            <div class="artifact-placeholder">Add second math lesson artifact here</div>
+            <div class="lesson-reflection">
+              <h4>Reflection</h4>
+              <p>
+                Add a short note about student engagement, differentiation, or how the lesson supported mathematical understanding.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="science-lessons">
+      <h2>Physics and Science Lessons</h2>
+      <p class="section-intro">
+        This section includes physics and science lessons developed through practicum and coursework. These artifacts reflect my approach to teaching through inquiry, modelling, problem solving, real-world connections, and evidence-based reasoning. Alongside each lesson plan, I include related teaching materials and a short reflection to show how the lesson was structured, what students were asked to think about or do, and what I learned through the planning or implementation process.
+      </p>
+      <button class="show-more-button" type="button" aria-expanded="false">Show More</button>
+      <div class="collapsible-content">
+        <div class="lesson-entry-grid">
+          <div class="lesson-entry">
+            <h3>Lesson Title Placeholder</h3>
+            <div class="lesson-meta">
+              <span class="tag">Physics / Science</span>
+              <span class="tag">Inquiry Task</span>
+              <span class="tag">Lesson Plan</span>
+            </div>
+            <p>
+              Add a summary of the lesson or lab here, including the scientific idea, investigation, or skill students were working on.
+            </p>
+            <div class="artifact-placeholder">Add physics or science lesson artifact here</div>
+            <div class="lesson-reflection">
+              <h4>Reflection</h4>
+              <p>
+                Explain what students were asked to explore or explain, and reflect on what the lesson revealed about student thinking and your teaching.
+              </p>
+            </div>
+          </div>
+
+          <div class="lesson-entry">
+            <h3>Lesson Title Placeholder</h3>
+            <div class="lesson-meta">
+              <span class="tag">Physics / Science</span>
+              <span class="tag">Lab or Modelling</span>
+              <span class="tag">Slides or Handout</span>
+            </div>
+            <p>
+              Add another science artifact here to show range across topics or teaching strategies.
+            </p>
+            <div class="artifact-placeholder">Add second science lesson artifact here</div>
+            <div class="lesson-reflection">
+              <h4>Reflection</h4>
+              <p>
+                Add a short reflection on engagement, scientific literacy, safety, collaboration, or how students used evidence in the task.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Resources for Professional Practice</h2>
+      <p class="section-intro">
+        This section highlights the key resources I draw on to support planning, instruction, assessment, and ongoing professional growth. Rather than providing a full description of every resource, I have organized this section into a concise reference library that reflects the main documents, texts, articles, and tools that inform my teaching practice and the materials included throughout this portfolio.
+      </p>
+      <button class="show-more-button" type="button" aria-expanded="false">Show More</button>
+      <div class="collapsible-content">
+        <div class="resource-grid">
+          <div class="resource-card">
+            <h3>Curriculum and Policy Documents</h3>
+            <p>
+              These documents guide my planning and help me align curriculum expectations, assessment, and instructional decisions.
+            </p>
+
+            <div style="margin-top: 1rem; display: grid; gap: 0.85rem;">
+              <div style="padding-bottom: 0.85rem; border-bottom: 1px solid #d9e4ef;">
+                <p><strong>Ontario Curriculum Document 1</strong></p>
+                <p style="margin-top: 0.3rem;">Used for identifying overall and specific expectations, planning instruction, and supporting curriculum alignment.</p>
+                <div style="margin-top: 0.6rem;">
+                  <a href="#" target="_blank" style="display: inline-block; text-decoration: none; background-color: #1f4e79; color: white; padding: 0.55rem 0.9rem; border-radius: 8px; font-weight: 600;">View Resource</a>
+                </div>
+              </div>
+
+              <div style="padding-bottom: 0.85rem; border-bottom: 1px solid #d9e4ef;">
+                <p><strong>Ontario Curriculum Document 2</strong></p>
+                <p style="margin-top: 0.3rem;">Used to support course-specific planning, unit development, and lesson design.</p>
+                <div style="margin-top: 0.6rem;">
+                  <a href="#" target="_blank" style="display: inline-block; text-decoration: none; background-color: #1f4e79; color: white; padding: 0.55rem 0.9rem; border-radius: 8px; font-weight: 600;">View Resource</a>
+                </div>
+              </div>
+
+              <div>
+                <p><strong>Growing Success / Ministry Support Document</strong></p>
+                <p style="margin-top: 0.3rem;">Used to inform assessment, evaluation, feedback, and reporting practices.</p>
+                <div style="margin-top: 0.6rem;">
+                  <a href="#" target="_blank" style="display: inline-block; text-decoration: none; background-color: #1f4e79; color: white; padding: 0.55rem 0.9rem; border-radius: 8px; font-weight: 600;">View Resource</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="resource-card">
+            <h3>Textbooks and Content Supports</h3>
+            <p>
+              These resources help strengthen my content knowledge, support worked examples, and provide ideas for lesson and task design.
+            </p>
+
+            <div style="margin-top: 1rem; display: grid; gap: 0.85rem;">
+              <div style="padding-bottom: 0.85rem; border-bottom: 1px solid #d9e4ef;">
+                <p><strong>Textbook 1</strong></p>
+                <p style="margin-top: 0.3rem;">Used for content review, worked examples, and lesson preparation.</p>
+                <div style="margin-top: 0.6rem;">
+                  <a href="#" target="_blank" style="display: inline-block; text-decoration: none; background-color: #1f4e79; color: white; padding: 0.55rem 0.9rem; border-radius: 8px; font-weight: 600;">View Textbook</a>
+                </div>
+              </div>
+
+              <div style="padding-bottom: 0.85rem; border-bottom: 1px solid #d9e4ef;">
+                <p><strong>Textbook 2</strong></p>
+                <p style="margin-top: 0.3rem;">Used to support topic explanations, examples, and classroom problem design.</p>
+                <div style="margin-top: 0.6rem;">
+                  <a href="#" target="_blank" style="display: inline-block; text-decoration: none; background-color: #1f4e79; color: white; padding: 0.55rem 0.9rem; border-radius: 8px; font-weight: 600;">View Textbook</a>
+                </div>
+              </div>
+
+              <div>
+                <p><strong>Textbook 3</strong></p>
+                <p style="margin-top: 0.3rem;">Used as an additional support for examples, review, and instructional planning.</p>
+                <div style="margin-top: 0.6rem;">
+                  <a href="#" target="_blank" style="display: inline-block; text-decoration: none; background-color: #1f4e79; color: white; padding: 0.55rem 0.9rem; border-radius: 8px; font-weight: 600;">View Textbook</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="resource-card">
+            <h3>Professional Reading and Research</h3>
+            <p>
+              These resources support my understanding of pedagogy, assessment, inclusion, inquiry, classroom management, and evidence-informed teaching practice.
+            </p>
+
+            <div style="margin-top: 1rem; display: grid; gap: 0.85rem;">
+              <div style="padding-bottom: 0.85rem; border-bottom: 1px solid #d9e4ef;">
+                <p><strong>Professional Book or Article 1</strong></p>
+                <p style="margin-top: 0.3rem;">Used to strengthen my understanding of teaching, learning, and classroom practice.</p>
+                <div style="margin-top: 0.6rem;">
+                  <a href="#" target="_blank" style="display: inline-block; text-decoration: none; background-color: #1f4e79; color: white; padding: 0.55rem 0.9rem; border-radius: 8px; font-weight: 600;">View Resource</a>
+                </div>
+              </div>
+
+              <div style="padding-bottom: 0.85rem; border-bottom: 1px solid #d9e4ef;">
+                <p><strong>Professional Book or Article 2</strong></p>
+                <p style="margin-top: 0.3rem;">Used to inform reflection, instructional decision-making, and professional growth.</p>
+                <div style="margin-top: 0.6rem;">
+                  <a href="#" target="_blank" style="display: inline-block; text-decoration: none; background-color: #1f4e79; color: white; padding: 0.55rem 0.9rem; border-radius: 8px; font-weight: 600;">View Resource</a>
+                </div>
+              </div>
+
+              <div>
+                <p><strong>Professional Book or Article 3</strong></p>
+                <p style="margin-top: 0.3rem;">Used to support research-informed planning and broader professional learning.</p>
+                <div style="margin-top: 0.6rem;">
+                  <a href="#" target="_blank" style="display: inline-block; text-decoration: none; background-color: #1f4e79; color: white; padding: 0.55rem 0.9rem; border-radius: 8px; font-weight: 600;">View Resource</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="resource-card">
+            <h3>Planning and Teaching Tools</h3>
+            <p>
+              These are websites, organizations, and planning supports that I use when developing lessons, units, classroom materials, and student-facing resources.
+            </p>
+
+            <div style="margin-top: 1rem; display: grid; gap: 0.85rem;">
+              <div style="padding-bottom: 0.85rem; border-bottom: 1px solid #d9e4ef;">
+                <p><strong>Planning Resource 1</strong></p>
+                <p style="margin-top: 0.3rem;">Used for lesson design, classroom resources, or instructional planning support.</p>
+                <div style="margin-top: 0.6rem;">
+                  <a href="#" target="_blank" style="display: inline-block; text-decoration: none; background-color: #1f4e79; color: white; padding: 0.55rem 0.9rem; border-radius: 8px; font-weight: 600;">View Resource</a>
+                </div>
+              </div>
+
+              <div style="padding-bottom: 0.85rem; border-bottom: 1px solid #d9e4ef;">
+                <p><strong>Planning Resource 2</strong></p>
+                <p style="margin-top: 0.3rem;">Used to support instructional ideas, templates, or classroom materials.</p>
+                <div style="margin-top: 0.6rem;">
+                  <a href="#" target="_blank" style="display: inline-block; text-decoration: none; background-color: #1f4e79; color: white; padding: 0.55rem 0.9rem; border-radius: 8px; font-weight: 600;">View Resource</a>
+                </div>
+              </div>
+
+              <div>
+                <p><strong>Planning Resource 3</strong></p>
+                <p style="margin-top: 0.3rem;">Used as an additional support for classroom preparation and professional practice.</p>
+                <div style="margin-top: 0.6rem;">
+                  <a href="#" target="_blank" style="display: inline-block; text-decoration: none; background-color: #1f4e79; color: white; padding: 0.55rem 0.9rem; border-radius: 8px; font-weight: 600;">View Resource</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="resource-card" style="margin-top: 1.5rem;">
+          <h3>How These Resources Support My Portfolio</h3>
+          <p>
+            The resources included in this section reflect the documents, readings, and planning supports that help shape the lessons, assessments, and materials presented throughout my portfolio. Together, they show the foundation behind my planning and illustrate how I draw on curriculum, pedagogy, content knowledge, and professional learning when developing classroom resources.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lesson-reflections">
+      <h2>Reflections Across Lessons</h2>
+      <p class="section-intro">
+        A strong portfolio shows not only what I created, but also how I learned from using those materials. These reflection prompts can be used under each lesson or resource. <strong>Put stuff like technology and how that has helped my practice as well for this </strong>
+      </p>
+      <button class="show-more-button" type="button" aria-expanded="false">Show More</button>
+      <div class="collapsible-content">
+        <div class="reflection-grid">
+          <div class="reflection-card">
+            <h3>What was the goal?</h3>
+            <p>State the learning goal, context, and why this lesson or resource mattered.</p>
+          </div>
+
+          <div class="reflection-card">
+            <h3>What worked well?</h3>
+            <p>Highlight student engagement, effective strategies, or evidence of understanding.</p>
+          </div>
+
+          <div class="reflection-card">
+            <h3>What would I change?</h3>
+            <p>Identify one specific adjustment you would make to improve clarity, pacing, or support.</p>
+          </div>
+
+          <div class="reflection-card">
+            <h3>What did I learn?</h3>
+            <p>Explain what the lesson taught you about teaching, student thinking, or future planning.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Jett Dobson | Teaching Portfolio</p>
+  </footer>
+
+  <script>
+    function switchPdf(button, iframeId, linkId, pdfPath) {
+      const iframe = document.getElementById(iframeId);
+      const link = document.getElementById(linkId);
+
+      iframe.src = pdfPath;
+      link.href = pdfPath;
+
+      const buttonGroup = button.parentElement.querySelectorAll('.pdf-switch-button');
+      buttonGroup.forEach((btn) => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      document.querySelectorAll('.collapsible-content.open').forEach((content) => {
+        content.style.maxHeight = content.scrollHeight + 'px';
+      });
+    }
+    const toggleButtons = document.querySelectorAll('.show-more-button');
+
+    toggleButtons.forEach((button) => {
+      const content = button.nextElementSibling;
+
+      button.addEventListener('click', () => {
+        const isOpen = content.classList.contains('open');
+
+        if (isOpen) {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          requestAnimationFrame(() => {
+            content.style.maxHeight = '0px';
+            content.classList.remove('open');
+          });
+          button.textContent = 'Show More';
+          button.setAttribute('aria-expanded', 'false');
+        } else {
+          content.classList.add('open');
+          content.style.maxHeight = content.scrollHeight + 'px';
+          button.textContent = 'Show Less';
+          button.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.collapsible-content.open').forEach((content) => {
+        content.style.maxHeight = content.scrollHeight + 'px';
+      });
+    });
+  </script>
+</body>
+</html>
